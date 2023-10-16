@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/menu_fragment_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".MenuItem">
+
+    <ImageView
+        android:id="@+id/menu_fragment_image"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="#e7dfd9"
+        app:layout_constraintTop_toTopOf="@id/menu_fragment_parent"
+        app:layout_constraintStart_toStartOf="@id/menu_fragment_parent"
+        android:src="@drawable/papua_new"/>
+
+    <TextView
+        android:id="@+id/menu_fragment_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/menu_fragment_parent"
+        app:layout_constraintTop_toBottomOf="@id/menu_fragment_image"
+        android:text="Test"
+        android:textSize="32dp"
+        android:textStyle="bold"
+        android:gravity="left"
+        android:paddingStart="32dp"
+        android:paddingEnd="32dp"
+        android:paddingTop="10dp"/>
+
+    <TextView
+        android:id="@+id/menu_fragment_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/menu_fragment_title"
+        app:layout_constraintStart_toStartOf="@id/menu_fragment_parent"
+        android:text="P800.00"
+        android:paddingStart="32dp"
+        android:paddingEnd="32dp"
+        android:textSize="24dp"
+        android:paddingTop="10dp"/>
+
+    <TextView
+        android:id="@+id/menu_fragment_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/menu_fragment_parent"
+        app:layout_constraintTop_toBottomOf="@id/menu_fragment_price"
+        android:text="Secret Stash 041: A member of the Creativa Coffee District, Lourdes Serracin presents you with this mind-blowing coffee. The 'intrinsic cherry' process allows the essence of each micro-lot to shine.
+        \n\nFLAVOR NOTES: In the cup, we taste Apple Juice, Ripe Mangoes and Ripe Cherry. A dynamic and tingly coffee best enjoyed as a pour over."
+        android:paddingStart="32dp"
+        android:paddingEnd="32dp"
+        android:paddingTop="10dp"
+        android:justificationMode="inter_word"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/menu_fragment_addToCart"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:text="Add to Cart"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        app:backgroundTint="@android:color/transparent"
+        app:cornerRadius="3dp"
+        app:rippleColor="#33AAAAAA"
+        app:strokeColor="#e7dfd9"
+        app:strokeWidth="2dp"
+        app:layout_constraintStart_toStartOf="@id/menu_fragment_parent"
+        app:layout_constraintEnd_toEndOf="@id/menu_fragment_parent"
+        app:layout_constraintTop_toBottomOf="@id/menu_fragment_description"
+        android:layout_marginTop="20dp"/>
+
+    <com.google.android.material.button.MaterialButton
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:text="Buy Now"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        app:backgroundTint="#ec694a"
+        app:cornerRadius="3dp"
+        app:rippleColor="#33AAAAAA"
+        app:strokeColor="#e7dfd9"
+        app:strokeWidth="2dp"
+        app:layout_constraintStart_toStartOf="@id/menu_fragment_parent"
+        app:layout_constraintEnd_toEndOf="@id/menu_fragment_parent"
+        app:layout_constraintTop_toBottomOf="@id/menu_fragment_addToCart"
+        android:layout_marginTop="10dp"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
