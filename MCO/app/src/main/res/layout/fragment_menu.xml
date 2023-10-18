@@ -11,9 +11,9 @@
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -25,7 +25,8 @@
             android:layout_marginTop="16dp"
             android:fontFamily="@font/sora"
             android:text="@string/deliverTo"
-            android:textAlignment="viewStart" />
+            android:textAlignment="viewStart"
+            android:textColor="@color/black" />
 
         <Spinner
             android:id="@+id/spinnerLocations"
@@ -35,6 +36,7 @@
             android:layout_marginBottom="16dp"
             android:dropDownWidth="wrap_content"
             android:entries="@array/locations"
+            android:spinnerMode="dropdown"
             android:theme="@style/SpinnerTheme" />
     </LinearLayout>
 
@@ -67,6 +69,7 @@
                 android:backgroundTint="@color/orange"
                 android:fontFamily="@font/sora"
                 android:text="Exclusives"
+                android:textColor="@color/white"
                 android:textStyle="bold"
                 app:cornerRadius="8dp" />
 
@@ -112,6 +115,7 @@
         android:id="@+id/recycler_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:paddingBottom="32dp"
         android:scrollbars="vertical"
         app:layoutManager="LinearLayoutManager"
         app:layout_constraintStart_toStartOf="@id/menu_parent"

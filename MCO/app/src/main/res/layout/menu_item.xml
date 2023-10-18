@@ -23,6 +23,7 @@
         android:gravity="center"
         android:text="Secret Stash 041: Lourdes S. Intrinsic Cherry"
         android:textAlignment="viewStart"
+        android:textColor="@color/black"
         android:textSize="12sp"
         android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/menu_item_photo"
