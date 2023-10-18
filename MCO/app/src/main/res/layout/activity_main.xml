@@ -28,6 +28,9 @@
         android:layout_gravity="bottom|end"
         android:layout_marginEnd="@dimen/fab_margin"
         android:layout_marginBottom="16dp"
-        app:srcCompat="@android:drawable/ic_input_add" />
+        app:backgroundTint="@color/orange"
+        app:maxImageSize="40dp"
+        app:tint="@color/white"
+        app:srcCompat="@drawable/cart" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

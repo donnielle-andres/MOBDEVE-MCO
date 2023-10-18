@@ -5,6 +5,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
+import android.widget.Spinner
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.mobdeve.s11.mco.databinding.FragmentMenuBinding
@@ -26,10 +29,26 @@ class MenuFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
         _binding = FragmentMenuBinding.inflate(inflater, container, false)
-        return binding.root
+        val locations = resources.getStringArray(R.array.locations)
+        val spinner = binding.spinnerLocations
+        val adapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_dropdown_item, locations)
 
+        spinner.adapter = adapter
+
+        spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(parent: AdapterView<*>, view: View?, position: Int, id: Long) {
+                // Handle item selection here
+                val selectedItem = locations[position]
+                // You can perform actions based on the selected item here
+            }
+
+            override fun onNothingSelected(parent: AdapterView<*>) {
+                // Handle nothing selected here
+            }
+        }
+
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -41,10 +60,10 @@ class MenuFragment : Fragment() {
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
         recyclerView.adapter = MenuAdapter(requireContext(), dataset)
 
-        // Adds a [DividerItemDecoration] between items
-        recyclerView.addItemDecoration(
-            DividerItemDecoration(context, DividerItemDecoration.VERTICAL)
-        )
+//        // Adds a [DividerItemDecoration] between items
+//        recyclerView.addItemDecoration(
+//            DividerItemDecoration(context, DividerItemDecoration.VERTICAL)
+//        )
 
     }
 
