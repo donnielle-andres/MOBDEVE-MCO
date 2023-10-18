@@ -10,10 +10,10 @@ class DataHelper {
                 "Secret Stash 041: Lourdes S. Intrinsic Cherry",
                 "Wild Flower", "GRAPOS decaf",
                 "Golden Ticket", "Legazpi")
-            val coffeePrices = arrayOf("P700.00-P1800.00",
-                "P800.00",
-                "P800.00-P1790.00", "P700.00-P1800.00",
-                "P700.00-P1550.00", "P700.00-P1790.00")
+            val coffeePrices = arrayOf("₱700.00 to ₱1800.00",
+                "₱800.00",
+                "₱800.00 to ₱1790.00", "₱700.00 to ₱1800.00",
+                "₱700.00 to ₱1550.00", "₱700.00 to ₱1790.00")
             val coffeeImages = intArrayOf(
                 R.drawable.papua_new
             )
