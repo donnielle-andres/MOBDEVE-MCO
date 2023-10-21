@@ -7,25 +7,45 @@
     android:layout_width="match_parent">
 
 
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="160dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="128dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/yardstick_logo" />
+
     <LinearLayout
         android:id="@+id/login_linear"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="128dp"
+        android:gravity="center"
         android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@id/login_parent"
-        app:layout_constraintTop_toTopOf="@id/login_parent"
-        android:gravity="center">
+        app:layout_constraintTop_toBottomOf="@+id/imageView">
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/username_text"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
             android:hint="Username"
-            android:layout_marginBottom="20dp">
+            app:boxStrokeColor="@color/black40"
+            app:hintTextColor="@color/black40">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="300dp"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/sora"
+                android:padding="12dp"
+                android:textColor="@color/black40"
+                android:textColorHighlight="@color/orange"
+                android:textColorHint="@color/black40"
+                android:textSize="14sp" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -33,12 +53,20 @@
             android:id="@+id/password_text"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
             android:hint="Password"
-            android:layout_marginBottom="20dp">
+            app:boxStrokeColor="@color/black40"
+            app:hintTextColor="@color/black40">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="300dp"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/sora"
+                android:padding="12dp"
+                android:textColor="@color/black40"
+                android:textColorHighlight="@color/orange"
+                android:textColorHint="@color/black40"
+                android:textSize="14sp" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -46,7 +74,37 @@
             android:id="@+id/login_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Submit"/>
+            android:backgroundTint="@color/orange"
+            android:fontFamily="@font/sora"
+            android:paddingLeft="36dp"
+            android:paddingTop="6dp"
+            android:paddingRight="36dp"
+            android:text="Log In"
+            android:textColor="@color/white"
+            android:textSize="12sp"
+            app:cornerRadius="6dp" />
+
+        <TextView
+            android:id="@+id/newCustomer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/sora"
+            android:text="New Customer?"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="10sp" />
+
+        <TextView
+            android:id="@+id/create_account"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/sora"
+            android:text="Create Account"
+            android:textAlignment="center"
+            android:textAllCaps="false"
+            android:textColor="@color/orange"
+            android:textSize="10sp" />
 
     </LinearLayout>
 
