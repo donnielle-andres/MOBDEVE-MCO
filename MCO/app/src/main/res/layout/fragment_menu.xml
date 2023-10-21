@@ -11,6 +11,9 @@
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -21,34 +24,53 @@
             android:id="@+id/deliverTo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginBottom="4dp"
             android:fontFamily="@font/sora"
             android:text="@string/deliverTo"
             android:textAlignment="viewStart"
-            android:textColor="@color/black" />
+            android:textColor="@color/black"
+            android:textSize="12sp" />
 
-        <Spinner
-            android:id="@+id/spinnerLocations"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginBottom="16dp"
-            android:dropDownWidth="wrap_content"
-            android:entries="@array/locations"
-            android:spinnerMode="dropdown"
-            android:theme="@style/SpinnerTheme" />
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="@string/enterAddress"
+            app:boxStrokeColor="@color/black40"
+            app:hintTextColor="@color/black40">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/sora"
+                android:padding="8dp"
+                android:textColor="@color/black40"
+                android:textColorHighlight="@color/orange"
+                android:textColorHint="@color/black40"
+                android:textSize="14sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!--        <Spinner-->
+        <!--            android:id="@+id/spinnerLocations"-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_marginStart="16dp"-->
+        <!--            android:layout_marginBottom="16dp"-->
+        <!--            android:dropDownWidth="wrap_content"-->
+        <!--            android:entries="@array/locations"-->
+        <!--            android:spinnerMode="dropdown"-->
+        <!--            android:theme="@style/SpinnerTheme" />-->
     </LinearLayout>
 
     <HorizontalScrollView
         android:id="@+id/scrollView2"
         android:layout_width="match_parent"
-        android:layout_height="64dp"
-        android:orientation="horizontal"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
         android:fillViewport="true"
+        android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout" >
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
 
         <LinearLayout
             android:id="@+id/linearLayout2"
@@ -70,8 +92,9 @@
                 android:fontFamily="@font/sora"
                 android:text="Exclusives"
                 android:textColor="@color/white"
+                android:textSize="14sp"
                 android:textStyle="bold"
-                app:cornerRadius="8dp" />
+                app:cornerRadius="12dp" />
 
             <Button
                 android:id="@+id/button2"
@@ -83,7 +106,8 @@
                 android:fontFamily="@font/sora"
                 android:text="Favorites"
                 android:textColor="@color/black"
-                app:cornerRadius="8dp" />
+                android:textSize="14sp"
+                app:cornerRadius="12dp" />
 
             <Button
                 android:id="@+id/button3"
@@ -95,7 +119,8 @@
                 android:fontFamily="@font/sora"
                 android:text="Espresso"
                 android:textColor="@color/black"
-                app:cornerRadius="8dp" />
+                android:textSize="14sp"
+                app:cornerRadius="12dp" />
 
             <Button
                 android:id="@+id/button4"
@@ -107,7 +132,8 @@
                 android:fontFamily="@font/sora"
                 android:text="Non-Caffeine"
                 android:textColor="@color/black"
-                app:cornerRadius="8dp" />
+                android:textSize="14sp"
+                app:cornerRadius="12dp" />
         </LinearLayout>
     </HorizontalScrollView>
 
@@ -115,9 +141,9 @@
         android:id="@+id/recycler_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingBottom="32dp"
         android:scrollbars="vertical"
         app:layoutManager="LinearLayoutManager"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@id/menu_parent"
         app:layout_constraintTop_toBottomOf="@+id/scrollView2" />
 
