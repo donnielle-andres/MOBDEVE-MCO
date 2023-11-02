@@ -13,9 +13,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.mobdeve.s11.mco.LoginDirections
 import com.mobdeve.s11.mco.MenuFragmentDirections
 import com.mobdeve.s11.mco.R
+import com.mobdeve.s11.mco.model.Cart
 import com.mobdeve.s11.mco.model.Menu
 
-class MenuAdapter(private val context: Context, private val dataset: List<Menu>):
+class MenuAdapter(private val context: Context, private val dataset: List<Menu>, private val cartItems: List<Cart>):
     RecyclerView.Adapter<MenuAdapter.MenuViewHolder>() {
 
         // Generates a [CharRange] from 'A' to 'Z' and converts it to a list
@@ -54,7 +55,7 @@ class MenuAdapter(private val context: Context, private val dataset: List<Menu>)
             val item = dataset[position]
             holder.menuPhoto.setImageResource(item.imageId)
             holder.menuTitle.text = item.title
-            holder.menuPrice.text = item.price
+            holder.menuPrice.text = ("${item.price} to ${item.priceMax}")
 
 
             // Assigns a [OnClickListener] to the button contained in the [ViewHolder]
@@ -63,7 +64,9 @@ class MenuAdapter(private val context: Context, private val dataset: List<Menu>)
                 // using the required argument
                 val bundle = Bundle()
                 bundle.putString("title_key", holder.menuTitle.text.toString())
-                bundle.putString("price_key", holder.menuPrice.text.toString())
+                bundle.putString("price_key", item.price)
+                bundle.putString("maxPrice_key", item.priceMax)
+                bundle.putString("image_key", item.itemId.toString())
                 // Navigate using that action
                 holder.view.findNavController().navigate(R.id.action_Menu_to_MenuItem, bundle)
             }

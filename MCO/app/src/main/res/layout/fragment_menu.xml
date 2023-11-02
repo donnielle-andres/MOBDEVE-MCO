@@ -20,6 +20,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
+
+
         <TextView
             android:id="@+id/deliverTo"
             android:layout_width="wrap_content"
@@ -32,6 +34,7 @@
             android:textSize="12sp" />
 
         <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/address"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:hint="@string/enterAddress"
@@ -135,7 +138,22 @@
                 android:textSize="14sp"
                 app:cornerRadius="12dp" />
         </LinearLayout>
+
     </HorizontalScrollView>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_marginEnd="@dimen/fab_margin"
+        android:layout_marginBottom="16dp"
+        app:backgroundTint="@color/orange"
+        app:maxImageSize="40dp"
+        app:tint="@color/white"
+        app:srcCompat="@drawable/cart"
+        app:layout_constraintEnd_toEndOf="@id/menu_parent"
+        app:layout_constraintBottom_toBottomOf="@id/menu_parent"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view"
@@ -146,5 +164,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@id/menu_parent"
         app:layout_constraintTop_toBottomOf="@+id/scrollView2" />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

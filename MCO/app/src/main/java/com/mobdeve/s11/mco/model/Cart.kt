@@ -1,9 +1,9 @@
 package com.mobdeve.s11.mco.model
 
-class Menu (
+class Cart (
     val imageId: Int,
     val title: String,
     val price: String,
-    val priceMax: String,
-    val itemId: Int) {
+    val size: String,
+    val quantity: Int) {
 }

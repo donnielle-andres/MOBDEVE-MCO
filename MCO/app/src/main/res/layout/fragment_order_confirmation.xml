@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_constraintStart_toStartOf="@id/menu_parent"
+    app:layout_constraintTop_toTopOf="@id/menu_parent">
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/menu_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MenuFragment">
+
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/deliverTo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
+            android:fontFamily="@font/sora"
+            android:text="@string/deliverTo"
+            android:textAlignment="viewStart"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
+            android:fontFamily="@font/sora"
+            android:text="Test Location"
+            android:textAlignment="viewStart"
+            android:textColor="#FFF06C4C"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
+            android:fontFamily="@font/sora"
+            android:text="John Doe"
+            android:textAlignment="viewStart"
+            android:textColor="#FFF06C4C"
+            android:textStyle="bold"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
+            android:fontFamily="@font/sora"
+            android:text="+63 1234567890"
+            android:textAlignment="viewStart"
+            android:textColor="#FFF06C4C"
+            android:textSize="14sp" />
+
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/order_details"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"
+        android:fontFamily="@font/sora"
+        android:text="Order Details"
+        android:textAlignment="viewStart"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintStart_toStartOf="@id/menu_parent"
+        app:layout_constraintTop_toBottomOf="@id/linearLayout"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="vertical"
+        app:layoutManager="LinearLayoutManager"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/menu_parent"
+        app:layout_constraintTop_toBottomOf="@+id/order_details"
+        android:paddingBottom="32dp"/>
+
+    <TextView
+        android:id="@+id/payment_summary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"
+        android:fontFamily="@font/sora"
+        android:text="Payment Summary"
+        android:textAlignment="viewStart"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintStart_toStartOf="@id/menu_parent"
+        app:layout_constraintTop_toBottomOf="@id/recycler_view"/>
+
+    <TextView
+        android:id="@+id/subtotal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"
+        android:fontFamily="@font/sora"
+        android:text="Subtotal"
+        android:textAlignment="viewStart"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        android:layout_marginStart="26dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintStart_toStartOf="@id/menu_parent"
+        app:layout_constraintTop_toBottomOf="@id/payment_summary"/>
+
+    <TextView
+        android:id="@+id/delivery_fee"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"
+        android:fontFamily="@font/sora"
+        android:text="Delivery Fee"
+        android:textAlignment="viewStart"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        android:layout_marginStart="26dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintStart_toStartOf="@id/menu_parent"
+        app:layout_constraintTop_toBottomOf="@id/subtotal"/>
+
+    <TextView
+        android:id="@+id/subtotal_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"
+        android:fontFamily="@font/sora"
+        android:text="₱100.00"
+        android:textColor="#FFF06C4C"
+        android:textAlignment="viewStart"
+        android:textSize="14sp"
+        android:layout_marginStart="200dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="26dp"
+        app:layout_constraintEnd_toEndOf="@id/menu_parent"
+        app:layout_constraintTop_toBottomOf="@id/payment_summary"/>
+
+    <TextView
+        android:id="@+id/delivery_fee_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"
+        android:fontFamily="@font/sora"
+        android:text="₱50.00"
+        android:textColor="#FFF06C4C"
+        android:textAlignment="viewStart"
+        android:textSize="14sp"
+        android:layout_marginStart="200dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="26dp"
+        app:layout_constraintEnd_toEndOf="@id/menu_parent"
+        app:layout_constraintTop_toBottomOf="@id/subtotal"/>
+
+
+
+    <TextView
+        android:id="@+id/total"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TOTAL"
+        app:layout_constraintTop_toBottomOf="@id/delivery_fee_price"
+        app:layout_constraintStart_toStartOf="@id/menu_parent"
+        android:paddingTop="40dp"
+        android:paddingStart="32dp"/>
+
+    <TextView
+        android:id="@+id/total_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="P1000.00"
+        app:layout_constraintTop_toBottomOf="@id/total"
+        app:layout_constraintStart_toStartOf="@id/menu_parent"
+        android:paddingBottom="32dp"
+        android:paddingStart="32dp"
+        android:fontFamily="@font/sora"
+        android:textColor="#FFF06C4C"
+        android:textSize="22dp"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/checkout"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        android:layout_width="120dp"
+        android:layout_height="40dp"
+        android:text="Order Now"
+        android:textColor="@color/white"
+        android:textSize="10sp"
+        app:backgroundTint="#ec694a"
+        app:cornerRadius="3dp"
+        app:rippleColor="#33AAAAAA"
+        app:strokeColor="#e7dfd9"
+        app:strokeWidth="2dp"
+        app:layout_constraintTop_toBottomOf="@id/total"
+        app:layout_constraintEnd_toEndOf="@id/menu_parent"
+        android:layout_marginBottom="32dp"
+        android:layout_marginEnd="32dp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

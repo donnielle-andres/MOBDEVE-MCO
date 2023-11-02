@@ -27,6 +27,9 @@
         <action
             android:id="@+id/action_Menu_to_MenuItem"
             app:destination="@id/menuItem" />
+        <action
+            android:id="@+id/menu_to_cart"
+            app:destination="@id/cartFragment" />
     </fragment>
     <fragment
         android:id="@+id/menuItem"
@@ -39,5 +42,27 @@
         <argument
             android:name="price_key"
             app:argType="string" />
+        <action
+            android:id="@+id/item_to_menu"
+            app:destination="@id/Menu" />
+    </fragment>
+    <fragment
+        android:id="@+id/cartFragment"
+        android:name="com.mobdeve.s11.mco.CartFragment"
+        android:label="Cart" >
+        <action
+            android:id="@+id/reload_cart"
+            app:destination="@id/cartFragment" />
+        <action
+            android:id="@+id/cart_to_confirmation"
+            app:destination="@id/orderConfirmationFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/orderConfirmationFragment"
+        android:name="com.mobdeve.s11.mco.OrderConfirmationFragment"
+        android:label="Order Confirmation" >
+        <action
+            android:id="@+id/order_now"
+            app:destination="@id/Menu" />
     </fragment>
 </navigation>

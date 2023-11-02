@@ -7,15 +7,17 @@ class DataHelper {
     companion object {
         fun initializeData(): ArrayList<Menu> {
             val coffeeNames = arrayOf("Papua New Guinea Arufa Espresso",
-                "Secret Stash 041: Lourdes S. Intrinsic Cherry",
                 "Wild Flower", "GRAPOS decaf",
                 "Golden Ticket", "Legazpi")
-            val coffeePrices = arrayOf("₱700.00 to ₱1800.00",
-                "₱800.00",
-                "₱800.00 to ₱1790.00", "₱700.00 to ₱1800.00",
-                "₱700.00 to ₱1550.00", "₱700.00 to ₱1790.00")
+            val coffeePrices = arrayOf("₱700.00",
+                "₱800.00", "₱700.00",
+                "₱700.00", "₱700.00")
+            val coffeePricesMax = arrayOf("₱1800.00", "₱1790.00",
+                "₱1800.00", "₱1550.00", "₱1790.00")
             val coffeeImages = intArrayOf(
-                R.drawable.papua_new
+                R.drawable.papua_new, R.drawable.wild_flower,
+                R.drawable.grapos_decaf, R.drawable.golden_ticket,
+                R.drawable.new_legazpi
             )
 
             val data = ArrayList<Menu>()
@@ -24,41 +26,44 @@ class DataHelper {
                     coffeeImages[0],
                     coffeeNames[0],
                     coffeePrices[0],
+                    coffeePricesMax[0],
+                    0
                 )
             )
             data.add(
                 Menu(
-                    coffeeImages[0],
+                    coffeeImages[1],
                     coffeeNames[1],
                     coffeePrices[1],
+                    coffeePricesMax[1],
+                    1
                 )
             )
             data.add(
                 Menu(
-                    coffeeImages[0],
+                    coffeeImages[2],
                     coffeeNames[2],
                     coffeePrices[2],
+                    coffeePricesMax[2],
+                    2
                 )
             )
             data.add(
                 Menu(
-                    coffeeImages[0],
+                    coffeeImages[3],
                     coffeeNames[3],
                     coffeePrices[3],
+                    coffeePricesMax[3],
+                    3
                 )
             )
             data.add(
                 Menu(
-                    coffeeImages[0],
+                    coffeeImages[4],
                     coffeeNames[4],
                     coffeePrices[4],
-                )
-            )
-            data.add(
-                Menu(
-                    coffeeImages[0],
-                    coffeeNames[5],
-                    coffeePrices[5],
+                    coffeePricesMax[4],
+                    4
                 )
             )
 
