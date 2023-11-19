@@ -10,8 +10,6 @@ import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
-import com.mobdeve.s11.mco.LoginDirections
-import com.mobdeve.s11.mco.MenuFragmentDirections
 import com.mobdeve.s11.mco.R
 import com.mobdeve.s11.mco.model.Cart
 import com.mobdeve.s11.mco.model.Menu
@@ -26,9 +24,9 @@ class MenuAdapter(private val context: Context, private val dataset: List<Menu>,
          */
         class MenuViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
             val menuPhoto = view.findViewById<ImageView>(R.id.menu_item_photo)
-            val menuTitle = view.findViewById<TextView>(R.id.menu_item_title)
-            val menuPrice = view.findViewById<TextView>(R.id.menu_item_price)
-            val parent = view.findViewById<ConstraintLayout>(R.id.menu_recycler_parent)
+            val menuTitle = view.findViewById<TextView>(R.id.order_id)
+            val menuPrice = view.findViewById<TextView>(R.id.order_total)
+            val parent = view.findViewById<ConstraintLayout>(R.id.menu_title)
         }
 
         override fun getItemCount(): Int {

@@ -10,34 +10,26 @@ import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
-import com.mobdeve.s11.mco.LoginDirections
-import com.mobdeve.s11.mco.MenuFragmentDirections
 import com.mobdeve.s11.mco.R
-import com.mobdeve.s11.mco.data.CartData.Companion.cartItems
 import com.mobdeve.s11.mco.model.Cart
 import com.mobdeve.s11.mco.model.Menu
+import com.mobdeve.s11.mco.model.Order
+import org.w3c.dom.Text
 
-class CartAdapter(private val context: Context, private val dataset: List<Cart>):
-    RecyclerView.Adapter<CartAdapter.CartViewHolder>() {
-    val coffeeImages = intArrayOf(
-        R.drawable.papua_new, R.drawable.wild_flower,
-        R.drawable.grapos_decaf, R.drawable.golden_ticket,
-        R.drawable.new_legazpi
-    )
+class HistoryAdapter(private val context: Context, private val dataset: List<Order>):
+    RecyclerView.Adapter<HistoryAdapter.HistoryViewHolder>() {
 
     // Generates a [CharRange] from 'A' to 'Z' and converts it to a list
 
     /**
      * Provides a reference for the views needed to display items in your list.
      */
-    class CartViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
-        val menuPhoto = view.findViewById<ImageView>(R.id.menu_item_photo)
-        val menuTitle = view.findViewById<TextView>(R.id.menu_item_title2)
-        val menuPrice = view.findViewById<TextView>(R.id.order_total)
-        val parent = view.findViewById<ConstraintLayout>(R.id.recycler_view)
-        val sizeView = view.findViewById<TextView>(R.id.menu_item_size)
-        val quantityView = view.findViewById<TextView>(R.id.menu_item_quantity)
-        val deleteButton = view.findViewById<TextView>(R.id.delete_button)
+    class HistoryViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
+        val orderId = view.findViewById<TextView>(R.id.order_id)
+        val orderAddress = view.findViewById<TextView>(R.id.order_address)
+        val orderDate = view.findViewById<TextView>(R.id.order_date)
+        val orderTotal = view.findViewById<TextView>(R.id.order_total)
+        val orderDetails = view.findViewById<TextView>(R.id.order_items)
     }
 
     override fun getItemCount(): Int {
@@ -47,36 +39,27 @@ class CartAdapter(private val context: Context, private val dataset: List<Cart>)
     /**
      * Creates new views with R.layout.item_view as its template
      */
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CartViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HistoryViewHolder {
         val layout = LayoutInflater
             .from(parent.context)
-            .inflate(R.layout.cart_item, parent, false)
+            .inflate(R.layout.history_item, parent, false)
 
         // Setup custom accessibility delegate to set the text read
         //layout.accessibilityDelegate = Accessibility
-        return CartViewHolder(layout)
+        return HistoryViewHolder(layout)
     }
 
     /**
      * Replaces the content of an existing view with new data
      */
-    override fun onBindViewHolder(holder: CartViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: HistoryViewHolder, position: Int) {
         val item = dataset[position]
+        holder.orderId.text = "Order #" + item.orderId
+        holder.orderAddress.text = item.orderAddress
+        holder.orderDetails.text = item.orderItems
+        holder.orderDate.text = item.orderDate
+        holder.orderTotal.text = "Php " + item.orderTotal
 
-        var tempPrice = item.price.replace("₱", "").toFloat()
-        tempPrice *= item.quantity.toFloat()
-
-        holder.menuPhoto.setImageResource(coffeeImages[item.imageId])
-        holder.menuTitle.text = item.title
-        holder.menuPrice.text = ("₱${tempPrice}")
-        holder.sizeView.text = item.size
-        holder.quantityView.text = item.quantity.toString()
-
-        holder.deleteButton.setOnClickListener{
-            cartItems.removeAt(position)
-            holder.view.findNavController().navigate(R.id.reload_cart)
-        }
-        // Assigns a [OnClickListener] to the button contained in the [ViewHolder]
     }
 
     // Setup custom accessibility delegate to set the text read with

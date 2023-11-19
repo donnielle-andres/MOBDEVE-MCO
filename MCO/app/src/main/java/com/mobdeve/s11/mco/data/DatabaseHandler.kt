@@ -1,0 +1,74 @@
+package com.mobdeve.s11.mco.data
+
+import android.content.Context
+import android.database.sqlite.SQLiteDatabase
+import android.database.sqlite.SQLiteOpenHelper
+import android.util.Log
+
+class DatabaseHandler (context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION) {
+    // All constant variables needed for the database; Do not modify
+    companion object {
+        private const val DATABASE_VERSION = 1
+        private const val DATABASE_NAME = "YardstickDatabase"
+        const val ORDERS_TABLE = "orders_table"
+
+        const val USER_EMAIL = "user_email"
+        const val ORDER_ID = "id"
+        const val ORDER_ITEMS = "order_items"
+        const val ORDER_ADDRESS = "order_address"
+        const val ORDER_TOTAL = "order_total"
+        const val ORDER_DATE = "order_date"
+
+        const val USERS_TABLE = "users_table"
+
+        const val USERNAME = "username"
+        const val PASSWORD = "password"
+        const val NUMBER = "number"
+    }
+
+    // Handles creation of the database
+    override fun onCreate(db: SQLiteDatabase?) {
+
+        val CREATE_ORDERS_TABLE = "CREATE TABLE $ORDERS_TABLE (" +
+                "	$ORDER_ID INTEGER PRIMARY KEY AUTOINCREMENT" +
+                "	,$USER_EMAIL TEXT" +
+                "	,$ORDER_ITEMS TEXT" +
+                "	,$ORDER_ADDRESS TEXT" +
+                "	,$ORDER_TOTAL FLOAT" +
+                "	,$ORDER_DATE TEXT" +
+                ")"
+        db?.execSQL(CREATE_ORDERS_TABLE)
+
+        val CREATE_USERS_TABLE = "CREATE TABLE $USERS_TABLE (" +
+                "	$USERNAME TEXT PRIMARY KEY" +
+                "	,$PASSWORD TEXT" +
+                "	,$NUMBER TEXT"+
+                ")"
+        db?.execSQL(CREATE_USERS_TABLE)
+        Log.d("DatabaseHandler", "onCreate called")
+
+        // Insert two sample users during initialization
+        val user1Username = "user1"
+        val user1Password = "password1"
+        val user1Number = "1234567890"
+
+        val user2Username = "user2"
+        val user2Password = "password2"
+        val user2Number = "9876543210"
+
+        // Insert user1
+        val insertUser1 = "INSERT INTO $USERS_TABLE ($USERNAME, $PASSWORD, $NUMBER) VALUES ('$user1Username', '$user1Password', '$user1Number')"
+        db?.execSQL(insertUser1)
+
+        // Insert user2
+        val insertUser2 = "INSERT INTO $USERS_TABLE ($USERNAME, $PASSWORD, $NUMBER) VALUES ('$user2Username', '$user2Password', '$user2Number')"
+        db?.execSQL(insertUser2)
+    }
+
+    override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
+        db!!.execSQL("DROP TABLE IF EXISTS $ORDERS_TABLE")
+        db!!.execSQL("DROP TABLE IF EXISTS $USERS_TABLE")
+
+        onCreate(db)
+    }
+}

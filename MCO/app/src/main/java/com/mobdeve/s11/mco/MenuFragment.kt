@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import android.widget.Button
 import android.widget.Spinner
 import android.widget.Toast
 import androidx.navigation.findNavController
@@ -98,6 +99,7 @@ class MenuFragment : Fragment() {
         val dataset = DataHelper.initializeData()
 
         val cartButton = view.findViewById<FloatingActionButton>(R.id.fab)
+        val favButton = view.findViewById<Button>(R.id.button2)
 
         println(cartItems.size)
         val recyclerView = binding.recyclerView
@@ -116,6 +118,12 @@ class MenuFragment : Fragment() {
             bundle.putString("location_key", locationString)
             view.findNavController().navigate(R.id.menu_to_cart, bundle)
         }
+
+        favButton.setOnClickListener {
+            view.findNavController().navigate(R.id.action_Menu_to_historyFragment)
+        }
+
+
 
     }
 

@@ -30,7 +30,12 @@
             android:textAlignment="viewStart"
             android:textColor="@color/black"
             android:textSize="12sp" />
-
+        <AutoCompleteTextView
+            android:id="@+id/autoCompleteTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter a location"
+            android:inputType="text" />
         <TextView
             android:id="@+id/location"
             android:layout_width="wrap_content"

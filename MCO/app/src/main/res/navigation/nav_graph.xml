@@ -30,6 +30,9 @@
         <action
             android:id="@+id/menu_to_cart"
             app:destination="@id/cartFragment" />
+        <action
+            android:id="@+id/action_Menu_to_historyFragment"
+            app:destination="@id/historyFragment" />
     </fragment>
     <fragment
         android:id="@+id/menuItem"
@@ -65,4 +68,9 @@
             android:id="@+id/order_now"
             app:destination="@id/Menu" />
     </fragment>
+    <fragment
+        android:id="@+id/historyFragment"
+        android:name="com.mobdeve.s11.mco.HistoryFragment"
+        android:label="fragment_history"
+        tools:layout="@layout/fragment_history" />
 </navigation>

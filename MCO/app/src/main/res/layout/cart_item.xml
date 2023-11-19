@@ -2,7 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/menu_recycler_parent"
+    android:id="@+id/menu_title"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginStart="20dp"
@@ -14,7 +14,7 @@
     android:padding="8dp">
 
     <TextView
-        android:id="@+id/menu_item_title"
+        android:id="@+id/order_id"
         android:layout_width="160dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -40,8 +40,8 @@
         android:textAlignment="viewStart"
         android:textColor="@color/black40"
         android:textSize="10sp"
-        app:layout_constraintStart_toStartOf="@+id/menu_item_title"
-        app:layout_constraintTop_toBottomOf="@+id/menu_item_title" />
+        app:layout_constraintStart_toStartOf="@+id/order_id"
+        app:layout_constraintTop_toBottomOf="@+id/order_id" />
 
     <TextView
         android:id="@+id/menu_item_size"
@@ -55,7 +55,7 @@
         android:textColor="@color/black40"
         android:textSize="10sp"
         app:layout_constraintStart_toEndOf="@+id/menu_item_title2"
-        app:layout_constraintTop_toBottomOf="@+id/menu_item_title" />
+        app:layout_constraintTop_toBottomOf="@+id/order_id" />
 
     <TextView
         android:id="@+id/menu_item_title3"
@@ -68,7 +68,7 @@
         android:textAlignment="viewStart"
         android:textColor="@color/black40"
         android:textSize="10sp"
-        app:layout_constraintStart_toStartOf="@+id/menu_item_title"
+        app:layout_constraintStart_toStartOf="@+id/order_id"
         app:layout_constraintTop_toBottomOf="@+id/menu_item_title2" />
 
     <TextView
@@ -86,7 +86,7 @@
         app:layout_constraintTop_toBottomOf="@+id/menu_item_title2" />
 
     <TextView
-        android:id="@+id/menu_item_price"
+        android:id="@+id/order_total"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -104,8 +104,8 @@
         android:id="@+id/delete_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="@id/menu_recycler_parent"
-        app:layout_constraintEnd_toEndOf="@id/menu_recycler_parent"
+        app:layout_constraintTop_toTopOf="@id/menu_title"
+        app:layout_constraintEnd_toEndOf="@id/menu_title"
         android:text="X"/>
 
     <ImageView
@@ -113,8 +113,8 @@
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:src="@drawable/papua_new"
-        app:layout_constraintStart_toStartOf="@id/menu_recycler_parent"
-        app:layout_constraintTop_toTopOf="@id/menu_recycler_parent" />
+        app:layout_constraintStart_toStartOf="@id/menu_title"
+        app:layout_constraintTop_toTopOf="@id/menu_title" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

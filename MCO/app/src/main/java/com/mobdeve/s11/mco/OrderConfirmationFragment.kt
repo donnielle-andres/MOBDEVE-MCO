@@ -17,10 +17,12 @@ import com.mobdeve.s11.mco.adapter.OrderConfirmationAdapter
 import com.mobdeve.s11.mco.data.CartData
 import com.mobdeve.s11.mco.data.CartData.Companion.cartItems
 import com.mobdeve.s11.mco.data.DataHelper
+import com.mobdeve.s11.mco.data.OrdersDatabase
 import com.mobdeve.s11.mco.databinding.FragmentCartBinding
 import com.mobdeve.s11.mco.databinding.FragmentMenuBinding
 import com.mobdeve.s11.mco.databinding.FragmentOrderConfirmationBinding
 import com.mobdeve.s11.mco.model.Cart
+import com.mobdeve.s11.mco.model.Order
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -43,6 +45,7 @@ class OrderConfirmationFragment : Fragment() {
     private var _binding: FragmentOrderConfirmationBinding? = null
 
     private val binding get() = _binding!!
+    private lateinit var sessionManager: SessionManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -50,6 +53,7 @@ class OrderConfirmationFragment : Fragment() {
         arguments?.let {
             locationString = it.getString(LOCATION).toString()
         }
+
     }
 
     override fun onCreateView(
@@ -62,6 +66,19 @@ class OrderConfirmationFragment : Fragment() {
         return binding.root
     }
 
+    // Inside OrderConfirmationFragment
+    private fun insertOrderIntoDatabase(cartItems: List<Cart>, location: String, username: String) {
+        val user = username// Replace with the actual user email
+        val orderItems = cartItems.joinToString { "${it.quantity} x ${it.title}" }
+        val orderAddress = location
+        val orderTotal = cartItems.sumOf { it.price.replace("₱", "").toDouble() * it.quantity }
+        val orderDate = "January 3, 2023" // Replace with the actual order date
+
+        val ordersDatabase = OrdersDatabase(requireContext())
+        val order = Order(0, user, orderItems, orderAddress, orderTotal, orderDate)
+
+        ordersDatabase.insertOrder(order)
+    }
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -69,7 +86,7 @@ class OrderConfirmationFragment : Fragment() {
          * findNavController().navigate(R.id.action_SecondFragment_to_FirstFragment)
         }*/
         val dataset = cartItems
-
+        var userEmail = "Guest"
         println(cartItems.size)
         var subtotalPrice = 0.0
         var totalPrice = 0.0
@@ -87,6 +104,21 @@ class OrderConfirmationFragment : Fragment() {
 
         val locationView = view.findViewById<TextView>(R.id.location)
         locationView.text = locationString
+
+        sessionManager = SessionManager(requireContext().applicationContext)
+        val nameTextView: TextView = view.findViewById(R.id.name)
+        if (sessionManager.isLoggedIn()) {
+            // If logged in, get the user's email (assuming email is used as a username here)
+            userEmail = sessionManager.getUserEmail()!!
+
+            // Set the user's email to the name TextView
+            nameTextView.text = userEmail
+        } else {
+            // If not logged in, you can handle it accordingly (e.g., redirect to login)
+            // For now, set a default text or leave it empty
+            nameTextView.text = "Guest"
+        }
+
         val recyclerView = binding.recyclerView
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
         recyclerView.adapter = OrderConfirmationAdapter(requireContext(), dataset)
@@ -96,8 +128,10 @@ class OrderConfirmationFragment : Fragment() {
         checkoutButton.setOnClickListener{
             Toast.makeText(requireContext(), "Order confirmed! Please wait for 30 minutes.",
                 Toast.LENGTH_SHORT).show();
-            cartItems = mutableListOf<Cart>()
+
             view.findNavController().navigate(R.id.order_now)
+
+            insertOrderIntoDatabase(cartItems, locationString,userEmail)
         }
 
 

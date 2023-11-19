@@ -1,7 +1,6 @@
 package com.mobdeve.s11.mco.adapter
 
 import android.content.Context
-import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,14 +8,9 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.isVisible
-import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
-import com.mobdeve.s11.mco.LoginDirections
-import com.mobdeve.s11.mco.MenuFragmentDirections
 import com.mobdeve.s11.mco.R
-import com.mobdeve.s11.mco.data.CartData.Companion.cartItems
 import com.mobdeve.s11.mco.model.Cart
-import com.mobdeve.s11.mco.model.Menu
 
 class OrderConfirmationAdapter(private val context: Context, private val dataset: List<Cart>):
     RecyclerView.Adapter<OrderConfirmationAdapter.OrderConfirmationViewHolder>() {
@@ -33,9 +27,9 @@ class OrderConfirmationAdapter(private val context: Context, private val dataset
      */
     class OrderConfirmationViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
         val menuPhoto = view.findViewById<ImageView>(R.id.menu_item_photo)
-        val menuTitle = view.findViewById<TextView>(R.id.menu_item_title)
-        val menuPrice = view.findViewById<TextView>(R.id.menu_item_price)
-        val parent = view.findViewById<ConstraintLayout>(R.id.menu_recycler_parent)
+        val menuTitle = view.findViewById<TextView>(R.id.order_id)
+        val menuPrice = view.findViewById<TextView>(R.id.order_total)
+        val parent = view.findViewById<ConstraintLayout>(R.id.menu_title)
         val sizeView = view.findViewById<TextView>(R.id.menu_item_size)
         val quantityView = view.findViewById<TextView>(R.id.menu_item_quantity)
         val deleteButton = view.findViewById<TextView>(R.id.delete_button)
