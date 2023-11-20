@@ -9,15 +9,24 @@ class SessionManager(context: Context) {
 
     companion object {
         private const val KEY_USER_EMAIL = "user_email"
+        private const val KEY_USER_NUMBER = "user_number"
+
     }
 
     fun saveUserEmail(email: String) {
         editor.putString(KEY_USER_EMAIL, email)
         editor.apply()
     }
+    fun saveUserNumber(number: String) {
+        editor.putString(KEY_USER_NUMBER, number)
+        editor.apply()
+    }
 
     fun getUserEmail(): String? {
         return sharedPreferences.getString(KEY_USER_EMAIL, null)
+    }
+    fun getUserNumber(): String? {
+        return sharedPreferences.getString(KEY_USER_NUMBER, null)
     }
 
     fun logout() {

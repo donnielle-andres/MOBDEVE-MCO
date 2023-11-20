@@ -10,35 +10,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="51657e4f-9adc-4db2-a030-f51a9d98efa3" name="Changes" comment="added account, settings, and nav bar, pero ayaw mag run haha">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/mobdeve/s11/mco/HistoryFragment.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/mobdeve/s11/mco/SessionManagement.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/mobdeve/s11/mco/adapter/HistoryAdapter.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/mobdeve/s11/mco/data/DatabaseHandler.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/mobdeve/s11/mco/data/OrdersDatabase.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/mobdeve/s11/mco/data/UsersDatabase.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/mobdeve/s11/mco/model/Order.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/mobdeve/s11/mco/model/User.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_history.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/history_item.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/mobdeve/s11/mco/CartFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/mobdeve/s11/mco/CartFragment.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/mobdeve/s11/mco/Login.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/mobdeve/s11/mco/Login.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/mobdeve/s11/mco/MenuFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/mobdeve/s11/mco/MenuFragment.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/mobdeve/s11/mco/OrderConfirmationFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/mobdeve/s11/mco/OrderConfirmationFragment.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/mobdeve/s11/mco/adapter/CartAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/mobdeve/s11/mco/adapter/CartAdapter.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/mobdeve/s11/mco/adapter/MenuAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/mobdeve/s11/mco/adapter/MenuAdapter.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/mobdeve/s11/mco/SessionManagement.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/mobdeve/s11/mco/SessionManagement.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/mobdeve/s11/mco/adapter/OrderConfirmationAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/mobdeve/s11/mco/adapter/OrderConfirmationAdapter.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/cart_item.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/cart_item.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_cart.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_cart.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/menu_item.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/menu_item.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/navigation/nav_graph.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/navigation/nav_graph.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/local.properties" beforeDir="false" afterPath="$PROJECT_DIR$/local.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/mobdeve/s11/mco/data/DatabaseHandler.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/mobdeve/s11/mco/data/DatabaseHandler.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/mobdeve/s11/mco/data/UsersDatabase.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/mobdeve/s11/mco/data/UsersDatabase.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_order_confirmation.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_order_confirmation.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[/Users/francisdoble/.android/avd/Pixel_3a_API_34_extension_level_7_arm64-v8a.avd]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[/Users/francisdoble/.android/avd/Pixel_6_Pro_API_33.avd]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -109,21 +96,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
-    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/francisdoble/Documents/MOBDEVE-MCO/MCO/app/src/main/res/layout&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "android-custom-view/Users/francisdoble/Library/Android/sdk/sources/android-34/android/widget/TextView.java_SELECTED": "TextView",
+    "cidr.known.project.marker": "true",
+    "last_opened_file_path": "/Users/francisdoble/Documents/MOBDEVE-MCO/MCO/app/src/main/res/layout"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File&quot;: [
-      &quot;Properties&quot;
+  "keyToStringList": {
+    "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
+      "Properties"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/app/src/main/res/layout" />

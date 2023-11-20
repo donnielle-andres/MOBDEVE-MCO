@@ -23,6 +23,9 @@ import com.mobdeve.s11.mco.databinding.FragmentMenuBinding
 import com.mobdeve.s11.mco.databinding.FragmentOrderConfirmationBinding
 import com.mobdeve.s11.mco.model.Cart
 import com.mobdeve.s11.mco.model.Order
+import java.text.SimpleDateFormat
+import java.util.Date
+import java.util.Locale
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -72,7 +75,9 @@ class OrderConfirmationFragment : Fragment() {
         val orderItems = cartItems.joinToString { "${it.quantity} x ${it.title}" }
         val orderAddress = location
         val orderTotal = cartItems.sumOf { it.price.replace("₱", "").toDouble() * it.quantity }
-        val orderDate = "January 3, 2023" // Replace with the actual order date
+        val currentDate = Date()
+        val dateFormat = SimpleDateFormat("MMMM d, yyyy", Locale.getDefault())
+        val orderDate = dateFormat.format(currentDate)
 
         val ordersDatabase = OrdersDatabase(requireContext())
         val order = Order(0, user, orderItems, orderAddress, orderTotal, orderDate)
@@ -87,6 +92,7 @@ class OrderConfirmationFragment : Fragment() {
         }*/
         val dataset = cartItems
         var userEmail = "Guest"
+        var userNumber = "0000"
         println(cartItems.size)
         var subtotalPrice = 0.0
         var totalPrice = 0.0
@@ -105,32 +111,27 @@ class OrderConfirmationFragment : Fragment() {
         val locationView = view.findViewById<TextView>(R.id.location)
         locationView.text = locationString
 
+        val usernameView = view.findViewById<TextView>(R.id.name)
+        val userNumberView = view.findViewById<TextView>(R.id.user_number)
         sessionManager = SessionManager(requireContext().applicationContext)
-        val nameTextView: TextView = view.findViewById(R.id.name)
+
         if (sessionManager.isLoggedIn()) {
             // If logged in, get the user's email (assuming email is used as a username here)
             userEmail = sessionManager.getUserEmail()!!
-
-            // Set the user's email to the name TextView
-            nameTextView.text = userEmail
-        } else {
-            // If not logged in, you can handle it accordingly (e.g., redirect to login)
-            // For now, set a default text or leave it empty
-            nameTextView.text = "Guest"
+            userNumber = sessionManager.getUserNumber()!!
         }
-
+        usernameView.setText(userEmail)
+        userNumberView.setText(userNumber)
         val recyclerView = binding.recyclerView
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
         recyclerView.adapter = OrderConfirmationAdapter(requireContext(), dataset)
 
         val checkoutButton = view.findViewById<MaterialButton>(R.id.checkout)
-
         checkoutButton.setOnClickListener{
             Toast.makeText(requireContext(), "Order confirmed! Please wait for 30 minutes.",
                 Toast.LENGTH_SHORT).show();
 
             view.findNavController().navigate(R.id.order_now)
-
             insertOrderIntoDatabase(cartItems, locationString,userEmail)
         }
 

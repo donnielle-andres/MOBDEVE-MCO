@@ -58,6 +58,7 @@ class Login : Fragment() {
                 if (user != null && user.password == password) {
                     // Authentication successful
                     sessionManager.saveUserEmail(username)
+                    sessionManager.saveUserNumber(user.number)
                     findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
                 }else {
                     // Authentication failed

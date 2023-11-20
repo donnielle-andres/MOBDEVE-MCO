@@ -5,7 +5,7 @@ import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 import android.util.Log
 
-class DatabaseHandler (context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION) {
+class DatabaseHandler (private val context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION) {
     // All constant variables needed for the database; Do not modify
     companion object {
         private const val DATABASE_VERSION = 1
@@ -50,11 +50,11 @@ class DatabaseHandler (context: Context) : SQLiteOpenHelper(context, DATABASE_NA
         // Insert two sample users during initialization
         val user1Username = "user1"
         val user1Password = "password1"
-        val user1Number = "1234567890"
+        val user1Number = "09771230987"
 
         val user2Username = "user2"
         val user2Password = "password2"
-        val user2Number = "9876543210"
+        val user2Number = "09175329876"
 
         // Insert user1
         val insertUser1 = "INSERT INTO $USERS_TABLE ($USERNAME, $PASSWORD, $NUMBER) VALUES ('$user1Username', '$user1Password', '$user1Number')"
@@ -71,4 +71,5 @@ class DatabaseHandler (context: Context) : SQLiteOpenHelper(context, DATABASE_NA
 
         onCreate(db)
     }
+
 }

@@ -11,6 +11,7 @@ import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import com.mobdeve.s11.mco.R
 import com.mobdeve.s11.mco.model.Cart
+import org.w3c.dom.Text
 
 class OrderConfirmationAdapter(private val context: Context, private val dataset: List<Cart>):
     RecyclerView.Adapter<OrderConfirmationAdapter.OrderConfirmationViewHolder>() {
@@ -33,6 +34,7 @@ class OrderConfirmationAdapter(private val context: Context, private val dataset
         val sizeView = view.findViewById<TextView>(R.id.menu_item_size)
         val quantityView = view.findViewById<TextView>(R.id.menu_item_quantity)
         val deleteButton = view.findViewById<TextView>(R.id.delete_button)
+
     }
 
     override fun getItemCount(): Int {
@@ -68,6 +70,7 @@ class OrderConfirmationAdapter(private val context: Context, private val dataset
         holder.quantityView.text = item.quantity.toString()
 
         holder.deleteButton.isVisible = false
+
         // Assigns a [OnClickListener] to the button contained in the [ViewHolder]
     }
 
