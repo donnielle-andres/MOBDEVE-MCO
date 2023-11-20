@@ -9,6 +9,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.textfield.TextInputLayout
+import com.mobdeve.s11.mco.data.CartData
 import com.mobdeve.s11.mco.data.UsersDatabase
 import com.mobdeve.s11.mco.databinding.FragmentLoginBinding
 
@@ -34,6 +35,7 @@ class Login : Fragment() {
         _binding = FragmentLoginBinding.inflate(inflater, container, false)
 
         binding.createAccountButton.setOnClickListener{
+
             findNavController().navigate(R.id.action_Login_to_signupFragment)
         }
         return binding.root
@@ -45,6 +47,7 @@ class Login : Fragment() {
         sessionManager = SessionManagement(requireContext().applicationContext)
 
         binding.loginButton.setOnClickListener {
+            CartData.cartItems.clear()
             val usernameText = view.findViewById<TextInputLayout>(R.id.username_text)
             val passwordText = view.findViewById<TextInputLayout>(R.id.password_text)
 

@@ -9,6 +9,7 @@ import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import android.view.Menu
 import android.view.MenuItem
+import com.mobdeve.s11.mco.data.CartData.Companion.cartItems
 import com.mobdeve.s11.mco.databinding.ActivityMainBinding
 import com.mobdeve.s11.mco.model.Cart
 
@@ -58,6 +59,7 @@ class MainActivity : AppCompatActivity() {
                 // Handle other menu items as needed
                 //Implement logout here
                 sessionManager.logout()
+                cartItems.clear()
                 findNavController(R.id.nav_host_fragment_content_main).navigate(R.id.mainActivity)
                 true
             }
