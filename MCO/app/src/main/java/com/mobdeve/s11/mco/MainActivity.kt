@@ -44,7 +44,16 @@ class MainActivity : AppCompatActivity() {
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         return when (item.itemId) {
-            R.id.action_settings -> true
+            R.id.shop -> {
+                // Perform your action when the "shop" item is clicked
+                // For example, you can navigate to a new activity
+                true
+            }
+            R.id.profile -> {
+                // Handle other menu items as needed
+                findNavController(R.id.nav_host_fragment_content_main).navigate(R.id.action_Menu_to_profileFragment)
+                true
+            }
             else -> super.onOptionsItemSelected(item)
         }
     }

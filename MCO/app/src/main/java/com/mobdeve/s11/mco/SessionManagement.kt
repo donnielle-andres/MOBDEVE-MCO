@@ -3,7 +3,7 @@ package com.mobdeve.s11.mco
 import android.content.Context
 import android.content.SharedPreferences
 
-class SessionManager(context: Context) {
+class SessionManagement(context: Context) {
     private val sharedPreferences: SharedPreferences = context.getSharedPreferences("Session", Context.MODE_PRIVATE)
     private val editor: SharedPreferences.Editor = sharedPreferences.edit()
 

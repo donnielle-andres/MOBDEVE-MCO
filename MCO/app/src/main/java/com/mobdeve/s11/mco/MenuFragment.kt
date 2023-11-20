@@ -71,23 +71,8 @@ class MenuFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentMenuBinding.inflate(inflater, container, false)
-//        val locations = resources.getStringArray(R.array.locations)
-//        val spinner = binding.spinnerLocations
-//        val adapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_dropdown_item, locations)
-//
-//        spinner.adapter = adapter
-//
-//        spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-//            override fun onItemSelected(parent: AdapterView<*>, view: View?, position: Int, id: Long) {
-//                // Handle item selection here
-//                val selectedItem = locations[position]
-//                // You can perform actions based on the selected item here
-//            }
-//
-//            override fun onNothingSelected(parent: AdapterView<*>) {
-//                // Handle nothing selected here
-//            }
-//        }
+
+
 
         return binding.root
     }
@@ -118,12 +103,6 @@ class MenuFragment : Fragment() {
             bundle.putString("location_key", locationString)
             view.findNavController().navigate(R.id.menu_to_cart, bundle)
         }
-
-        favButton.setOnClickListener {
-            view.findNavController().navigate(R.id.action_Menu_to_historyFragment)
-        }
-
-
 
     }
 

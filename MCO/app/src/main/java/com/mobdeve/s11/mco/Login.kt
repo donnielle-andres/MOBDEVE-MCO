@@ -23,7 +23,7 @@ class Login : Fragment() {
     // onDestroyView.
     private val binding get() = _binding!!
 
-    private lateinit var sessionManager: SessionManager
+    private lateinit var sessionManager: SessionManagement
 
 
     override fun onCreateView(
@@ -42,7 +42,7 @@ class Login : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        sessionManager = SessionManager(requireContext().applicationContext)
+        sessionManager = SessionManagement(requireContext().applicationContext)
 
         binding.loginButton.setOnClickListener {
             val usernameText = view.findViewById<TextInputLayout>(R.id.username_text)

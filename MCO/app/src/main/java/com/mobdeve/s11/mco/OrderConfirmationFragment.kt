@@ -48,7 +48,7 @@ class OrderConfirmationFragment : Fragment() {
     private var _binding: FragmentOrderConfirmationBinding? = null
 
     private val binding get() = _binding!!
-    private lateinit var sessionManager: SessionManager
+    private lateinit var sessionManager: SessionManagement
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -113,7 +113,7 @@ class OrderConfirmationFragment : Fragment() {
 
         val usernameView = view.findViewById<TextView>(R.id.name)
         val userNumberView = view.findViewById<TextView>(R.id.user_number)
-        sessionManager = SessionManager(requireContext().applicationContext)
+        sessionManager = SessionManagement(requireContext().applicationContext)
 
         if (sessionManager.isLoggedIn()) {
             // If logged in, get the user's email (assuming email is used as a username here)
