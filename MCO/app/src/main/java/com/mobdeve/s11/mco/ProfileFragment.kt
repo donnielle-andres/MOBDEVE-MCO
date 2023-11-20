@@ -54,9 +54,14 @@ class ProfileFragment : Fragment() {
         userNumberView.setText(sessionManager.getUserNumber())
 
         val orderHistoryButton = view.findViewById<Button>(R.id.orderHistoryBtn)
-
+        val logoutButton = view.findViewById<Button>(R.id.logOutBtn)
         orderHistoryButton.setOnClickListener{
             view.findNavController().navigate(R.id.action_profileFragment_to_historyFragment)
+        }
+
+        logoutButton.setOnClickListener{
+            sessionManager.logout()
+            view.findNavController().navigate(R.id.mainActivity)
         }
 
     }

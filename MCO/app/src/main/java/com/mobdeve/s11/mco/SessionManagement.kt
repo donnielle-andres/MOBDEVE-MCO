@@ -30,7 +30,7 @@ class SessionManagement(context: Context) {
     }
 
     fun logout() {
-        editor.remove(KEY_USER_EMAIL)
+        editor.clear()
         editor.apply()
     }
 

@@ -16,6 +16,7 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityMainBinding
+    private lateinit var sessionManager: SessionManagement
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -29,8 +30,7 @@ class MainActivity : AppCompatActivity() {
         val navController = findNavController(R.id.nav_host_fragment_content_main)
         appBarConfiguration = AppBarConfiguration(navController.graph)
         setupActionBarWithNavController(navController, appBarConfiguration)
-
-
+        sessionManager = SessionManagement(applicationContext)
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -52,6 +52,13 @@ class MainActivity : AppCompatActivity() {
             R.id.profile -> {
                 // Handle other menu items as needed
                 findNavController(R.id.nav_host_fragment_content_main).navigate(R.id.action_Menu_to_profileFragment)
+                true
+            }
+            R.id.logout -> {
+                // Handle other menu items as needed
+                //Implement logout here
+                sessionManager.logout()
+                findNavController(R.id.nav_host_fragment_content_main).navigate(R.id.mainActivity)
                 true
             }
             else -> super.onOptionsItemSelected(item)
