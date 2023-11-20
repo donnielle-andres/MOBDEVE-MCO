@@ -31,24 +31,11 @@
             android:textColor="@color/black"
             android:textSize="12sp" />
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/address"
+        <fragment android:id="@+id/autocomplete_fragment"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:hint="@string/enterAddress"
-            app:boxStrokeColor="@color/black40"
-            app:hintTextColor="@color/black40">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/sora"
-                android:padding="8dp"
-                android:textColor="@color/black40"
-                android:textColorHighlight="@color/orange"
-                android:textColorHint="@color/black40"
-                android:textSize="14sp" />
-        </com.google.android.material.textfield.TextInputLayout>
+            android:layout_height="wrap_content"
+            android:name="com.google.android.libraries.places.widget.AutocompleteSupportFragment"
+            />
 
         <!--        <Spinner-->
         <!--            android:id="@+id/spinnerLocations"-->

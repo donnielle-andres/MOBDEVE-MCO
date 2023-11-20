@@ -99,4 +99,13 @@
         android:name="com.mobdeve.s11.mco.MainActivity"
         android:label="activity_main"
         tools:layout="@layout/activity_main" />
+    <fragment
+        android:id="@+id/addressFragment"
+        android:name="com.mobdeve.s11.mco.AddressFragment"
+        android:label="fragment_address"
+        tools:layout="@layout/fragment_address" >
+        <action
+            android:id="@+id/action_addressFragment_to_Menu"
+            app:destination="@id/Menu" />
+    </fragment>
 </navigation>

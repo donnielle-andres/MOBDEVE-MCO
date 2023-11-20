@@ -6,9 +6,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import android.widget.Toast
 import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.android.libraries.places.api.Places
+import com.google.android.libraries.places.api.model.Place
 import com.google.android.material.button.MaterialButton
 import com.mobdeve.s11.mco.adapter.CartAdapter
 import com.mobdeve.s11.mco.adapter.MenuAdapter
@@ -19,6 +22,8 @@ import com.mobdeve.s11.mco.data.DataHelper
 import com.mobdeve.s11.mco.databinding.FragmentCartBinding
 import com.mobdeve.s11.mco.databinding.FragmentMenuBinding
 import com.mobdeve.s11.mco.model.Cart
+import androidx.appcompat.app.AppCompatActivity
+import com.google.android.libraries.places.widget.AutocompleteSupportFragment
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -41,13 +46,17 @@ class CartFragment : Fragment() {
     private var _binding: FragmentCartBinding? = null
 
     private val binding get() = _binding!!
+    private lateinit var sessionManager: SessionManagement
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        sessionManager = SessionManagement(requireContext().applicationContext)
+
         locationString = "No Location"
         arguments?.let {
             locationString = it.getString(LOCATION).toString()
         }
+        //autoCompleteFragment.setOnPlaceSelectedListener()
     }
 
     override fun onCreateView(
@@ -80,17 +89,25 @@ class CartFragment : Fragment() {
         subtotalView.text = ("₱${totalPrice}")
 
         val locationView = view.findViewById<TextView>(R.id.location)
-        locationView.text = locationString
+        locationView.text = sessionManager.getAddress()
         val recyclerView = binding.recyclerView
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
         recyclerView.adapter = CartAdapter(requireContext(), dataset)
 
         val checkoutButton = view.findViewById<MaterialButton>(R.id.checkout)
 
+
+
         checkoutButton.setOnClickListener{
-            val bundle = Bundle()
-            bundle.putString("location_key", locationString)
-            view.findNavController().navigate(R.id.cart_to_confirmation, bundle)
+            if(sessionManager.getAddress()!=null){
+                val bundle = Bundle()
+                bundle.putString("location_key", locationString)
+                view.findNavController().navigate(R.id.cart_to_confirmation, bundle)
+            }else{
+                Toast.makeText(requireContext(), "Delivery Address is required!",
+                    Toast.LENGTH_SHORT).show();
+            }
+
         }
 
 

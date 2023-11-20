@@ -10,7 +10,7 @@ class SessionManagement(context: Context) {
     companion object {
         private const val KEY_USER_EMAIL = "user_email"
         private const val KEY_USER_NUMBER = "user_number"
-
+        private const val KEY_ADDRESS = "key_address"
     }
 
     fun saveUserEmail(email: String) {
@@ -22,6 +22,11 @@ class SessionManagement(context: Context) {
         editor.apply()
     }
 
+    fun saveAddress(address:String){
+        editor.putString(KEY_ADDRESS,address)
+        editor.apply()
+    }
+
     fun getUserEmail(): String? {
         return sharedPreferences.getString(KEY_USER_EMAIL, null)
     }
@@ -29,11 +34,17 @@ class SessionManagement(context: Context) {
         return sharedPreferences.getString(KEY_USER_NUMBER, null)
     }
 
+    fun getAddress():String?{
+        return sharedPreferences.getString(KEY_ADDRESS,null)
+    }
     fun logout() {
         editor.clear()
         editor.apply()
     }
-
+    fun clearAddress() {
+        editor.remove(KEY_ADDRESS)
+        editor.apply()
+    }
     fun isLoggedIn(): Boolean {
         return getUserEmail() != null
     }

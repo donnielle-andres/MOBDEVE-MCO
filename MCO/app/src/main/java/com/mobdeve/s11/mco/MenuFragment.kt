@@ -11,12 +11,19 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.Spinner
+import android.widget.TextView
 import android.widget.Toast
 import androidx.annotation.ColorRes
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.android.gms.common.api.Status
+import com.google.android.libraries.places.api.Places
+import com.google.android.libraries.places.api.model.Place
+import com.google.android.libraries.places.widget.AutocompleteSupportFragment
+import com.google.android.libraries.places.widget.listener.PlaceSelectionListener
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 import com.mobdeve.s11.mco.databinding.FragmentMenuBinding
 import com.mobdeve.s11.mco.adapter.MenuAdapter
@@ -38,6 +45,7 @@ class MenuFragment : Fragment() {
         val SIZE = "size_key"
     }
 
+    private lateinit var autocompleteSupportFragment: AutocompleteSupportFragment
     private var _binding: FragmentMenuBinding? = null
 
     private lateinit var titleString: String
@@ -45,6 +53,7 @@ class MenuFragment : Fragment() {
     private lateinit var imageId: String
     private lateinit var quantityString: String
     private lateinit var sizeString: String
+    private lateinit var sessionManager: SessionManagement
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -52,6 +61,8 @@ class MenuFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        sessionManager = SessionManagement(requireContext().applicationContext)
+
         titleString = ""
         arguments?.let {
             titleString = it.getString(TITLE).toString()
@@ -64,6 +75,9 @@ class MenuFragment : Fragment() {
             cartItems.add(Cart(imageId.toInt(), titleString, priceString, sizeString, quantityString.toInt()))
             Toast.makeText(requireContext(), "Order added to cart!",
                 Toast.LENGTH_SHORT).show();
+        }
+        if(!Places.isInitialized()){
+            Places.initialize(requireContext().applicationContext,"AIzaSyDjoWTu_ftH9UpUFbpp86kYYCDzEi1d2go")
         }
 
     }
@@ -102,12 +116,40 @@ class MenuFragment : Fragment() {
 //        )
 
         cartButton.setOnClickListener{
-            val locationInput = view.findViewById<TextInputLayout>(R.id.address)
-            val locationString = locationInput.editText?.text.toString()
+
             val bundle = Bundle()
-            bundle.putString("location_key", locationString)
             view.findNavController().navigate(R.id.menu_to_cart, bundle)
         }
+        var inputAddressHint = "Enter address"
+        val deliverToText = view.findViewById<TextView>(R.id.deliverTo)
+        autocompleteSupportFragment = (childFragmentManager.findFragmentById(R.id.autocomplete_fragment) as? AutocompleteSupportFragment)!!
+
+        if (autocompleteSupportFragment != null) {
+            autocompleteSupportFragment.setPlaceFields(listOf(Place.Field.LAT_LNG, Place.Field.NAME))
+
+            autocompleteSupportFragment.setOnPlaceSelectedListener(object : PlaceSelectionListener {
+                override fun onError(p0: Status) {
+                    // Handle error
+                }
+                override fun onPlaceSelected(p0: Place) {
+                    sessionManager.saveAddress(p0.name!!)
+                    deliverToText.setText(sessionManager.getAddress())
+                }
+            })
+        } else {
+            Log.e("MenuFragment", "AutocompleteSupportFragment not found")
+        }
+        autocompleteSupportFragment.setOnPlaceSelectedListener(object : PlaceSelectionListener {
+            override fun onError(p0: Status) {
+                TODO("Not yet implemented")
+            }
+
+            override fun onPlaceSelected(p0: Place) {
+                sessionManager.saveAddress(p0.name!!)
+                deliverToText.setText("Deliver to: "+sessionManager.getAddress())
+            }
+
+        })
 
         // BEANS CATEG
         beanButton.setOnClickListener{

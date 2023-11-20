@@ -66,6 +66,7 @@ class Login : Fragment() {
                     // Authentication successful
                     sessionManager.saveUserEmail(username)
                     sessionManager.saveUserNumber(user.number)
+                    sessionManager.clearAddress()
                     findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
                 }else {
                     // Authentication failed

@@ -32,6 +32,7 @@ class MainActivity : AppCompatActivity() {
         appBarConfiguration = AppBarConfiguration(navController.graph)
         setupActionBarWithNavController(navController, appBarConfiguration)
         sessionManager = SessionManagement(applicationContext)
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -58,6 +59,7 @@ class MainActivity : AppCompatActivity() {
             R.id.logout -> {
                 // Handle other menu items as needed
                 //Implement logout here
+                sessionManager.clearAddress()
                 sessionManager.logout()
                 cartItems.clear()
                 findNavController(R.id.nav_host_fragment_content_main).navigate(R.id.mainActivity)

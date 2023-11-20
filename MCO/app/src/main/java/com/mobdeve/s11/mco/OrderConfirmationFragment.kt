@@ -47,6 +47,7 @@ class OrderConfirmationFragment : Fragment() {
 
     private var _binding: FragmentOrderConfirmationBinding? = null
 
+
     private val binding get() = _binding!!
     private lateinit var sessionManager: SessionManagement
 
@@ -109,11 +110,12 @@ class OrderConfirmationFragment : Fragment() {
         totalView.text = ("₱${subtotalPrice+50.00}")
 
         val locationView = view.findViewById<TextView>(R.id.location)
-        locationView.text = locationString
 
         val usernameView = view.findViewById<TextView>(R.id.name)
         val userNumberView = view.findViewById<TextView>(R.id.user_number)
         sessionManager = SessionManagement(requireContext().applicationContext)
+        locationString = sessionManager.getAddress()!!
+        locationView.text = sessionManager.getAddress()
 
         if (sessionManager.isLoggedIn()) {
             // If logged in, get the user's email (assuming email is used as a username here)
@@ -128,11 +130,18 @@ class OrderConfirmationFragment : Fragment() {
 
         val checkoutButton = view.findViewById<MaterialButton>(R.id.checkout)
         checkoutButton.setOnClickListener{
-            Toast.makeText(requireContext(), "Order confirmed! Please wait for 30 minutes.",
-                Toast.LENGTH_SHORT).show();
+            if(sessionManager.getAddress()!=null){
+                Toast.makeText(requireContext(), "Order confirmed! Please wait for 30 minutes.",
+                    Toast.LENGTH_SHORT).show();
+                insertOrderIntoDatabase(cartItems, locationString,userEmail)
+                view.findNavController().navigate(R.id.order_now)
+            }
+            else{
+                Toast.makeText(requireContext(), "Delivery Address is required!",
+                    Toast.LENGTH_SHORT).show();
 
-            view.findNavController().navigate(R.id.order_now)
-            insertOrderIntoDatabase(cartItems, locationString,userEmail)
+            }
+
         }
 
 

@@ -30,6 +30,7 @@
             android:textColor="@color/black"
             android:textSize="12sp" />
 
+
         <TextView
             android:id="@+id/location"
             android:layout_width="wrap_content"
