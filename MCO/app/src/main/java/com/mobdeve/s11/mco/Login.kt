@@ -32,6 +32,10 @@ class Login : Fragment() {
     ): View? {
 
         _binding = FragmentLoginBinding.inflate(inflater, container, false)
+
+        binding.createAccountButton.setOnClickListener{
+            findNavController().navigate(R.id.action_Login_to_signupFragment)
+        }
         return binding.root
 
     }
