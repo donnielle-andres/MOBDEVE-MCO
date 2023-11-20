@@ -9,7 +9,7 @@ class DatabaseHandler (private val context: Context) : SQLiteOpenHelper(context,
     // All constant variables needed for the database; Do not modify
     companion object {
         private const val DATABASE_VERSION = 1
-        private const val DATABASE_NAME = "YardstickDatabase"
+        private const val DATABASE_NAME = "YardstickDatabase.sql"
         const val ORDERS_TABLE = "orders_table"
 
         const val USER_EMAIL = "user_email"

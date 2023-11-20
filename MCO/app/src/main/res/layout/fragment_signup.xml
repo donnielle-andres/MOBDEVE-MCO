@@ -35,12 +35,15 @@
         android:id="@+id/signup_linear"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="68dp"
         android:gravity="center"
         android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editAccText">
+        app:layout_constraintTop_toBottomOf="@+id/editAccText"
+        app:layout_constraintVertical_bias="0.107">
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/newUsernameInput"
@@ -82,12 +85,13 @@
                 android:textColorHint="@color/black40"
                 android:textSize="14sp" />
         </com.google.android.material.textfield.TextInputLayout>
+
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/newNumberInput"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
-            android:hint="Enter New Number"
+            android:hint="Enter Phone Number"
             app:boxStrokeColor="@color/black40"
             app:hintTextColor="@color/black40">
 
@@ -95,12 +99,15 @@
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/sora"
+                android:inputType="phone"
+                android:maxLength="11"
                 android:padding="12dp"
                 android:textColor="@color/black40"
                 android:textColorHighlight="@color/orange"
                 android:textColorHint="@color/black40"
                 android:textSize="14sp" />
         </com.google.android.material.textfield.TextInputLayout>
+
         <Button
             android:id="@+id/signup_button"
             android:layout_width="wrap_content"

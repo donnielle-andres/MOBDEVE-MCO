@@ -1,5 +1,6 @@
 package com.mobdeve.s11.mco
 
+import android.graphics.Typeface
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -11,6 +12,7 @@ import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.Spinner
 import android.widget.Toast
+import androidx.annotation.ColorRes
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -84,7 +86,10 @@ class MenuFragment : Fragment() {
         val dataset = DataHelper.initializeData()
 
         val cartButton = view.findViewById<FloatingActionButton>(R.id.fab)
-        val favButton = view.findViewById<Button>(R.id.button2)
+        val beanButton = view.findViewById<Button>(R.id.button1)
+        val espBarButton = view.findViewById<Button>(R.id.button2)
+        val exclusButton = view.findViewById<Button>(R.id.button3)
+        val noncafButton = view.findViewById<Button>(R.id.button4)
 
         println(cartItems.size)
         val recyclerView = binding.recyclerView
@@ -103,6 +108,100 @@ class MenuFragment : Fragment() {
             bundle.putString("location_key", locationString)
             view.findNavController().navigate(R.id.menu_to_cart, bundle)
         }
+
+        // BEANS CATEG
+        beanButton.setOnClickListener{
+            beanButton.setBackgroundColor(resources.getColor(R.color.orange))
+            beanButton.setTextColor(resources.getColor(android.R.color.white))
+            beanButton.setTypeface(null, Typeface.BOLD)
+
+            espBarButton.setBackgroundColor(resources.getColor(R.color.white))
+            espBarButton.setTextColor(resources.getColor(android.R.color.black))
+            espBarButton.setTypeface(null, Typeface.NORMAL)
+
+            exclusButton.setBackgroundColor(resources.getColor(R.color.white))
+            exclusButton.setTextColor(resources.getColor(android.R.color.black))
+            exclusButton.setTypeface(null, Typeface.NORMAL)
+
+            noncafButton.setBackgroundColor(resources.getColor(R.color.white))
+            noncafButton.setTextColor(resources.getColor(android.R.color.black))
+            noncafButton.setTypeface(null, Typeface.NORMAL)
+
+            val beanItems = dataset.filter { it.menuType == "Bean" }
+            recyclerView.layoutManager = LinearLayoutManager(requireContext())
+            recyclerView.adapter = MenuAdapter(requireContext(), beanItems, cartItems)
+        }
+
+        // ESPRESSO BAR CATEG
+        espBarButton.setOnClickListener{
+            espBarButton.setBackgroundColor(resources.getColor(R.color.orange))
+            espBarButton.setTextColor(resources.getColor(android.R.color.white))
+            espBarButton.setTypeface(null, Typeface.BOLD)
+
+            beanButton.setBackgroundColor(resources.getColor(R.color.white))
+            beanButton.setTextColor(resources.getColor(android.R.color.black))
+            beanButton.setTypeface(null, Typeface.NORMAL)
+
+            exclusButton.setBackgroundColor(resources.getColor(R.color.white))
+            exclusButton.setTextColor(resources.getColor(android.R.color.black))
+            exclusButton.setTypeface(null, Typeface.NORMAL)
+
+            noncafButton.setBackgroundColor(resources.getColor(R.color.white))
+            noncafButton.setTextColor(resources.getColor(android.R.color.black))
+            noncafButton.setTypeface(null, Typeface.NORMAL)
+
+            val beanItems = dataset.filter { it.menuType == "Espresso" }
+            recyclerView.layoutManager = LinearLayoutManager(requireContext())
+            recyclerView.adapter = MenuAdapter(requireContext(), beanItems, cartItems)
+
+        }
+
+        // EXCLUSIVES CATEG
+        exclusButton.setOnClickListener{
+            exclusButton.setBackgroundColor(resources.getColor(R.color.orange))
+            exclusButton.setTextColor(resources.getColor(android.R.color.white))
+            exclusButton.setTypeface(null, Typeface.BOLD)
+
+            beanButton.setBackgroundColor(resources.getColor(R.color.white))
+            beanButton.setTextColor(resources.getColor(android.R.color.black))
+            beanButton.setTypeface(null, Typeface.NORMAL)
+
+            espBarButton.setBackgroundColor(resources.getColor(R.color.white))
+            espBarButton.setTextColor(resources.getColor(android.R.color.black))
+            espBarButton.setTypeface(null, Typeface.NORMAL)
+
+            noncafButton.setBackgroundColor(resources.getColor(R.color.white))
+            noncafButton.setTextColor(resources.getColor(android.R.color.black))
+            noncafButton.setTypeface(null, Typeface.NORMAL)
+
+            val beanItems = dataset.filter { it.menuType == "Exclusive" }
+            recyclerView.layoutManager = LinearLayoutManager(requireContext())
+            recyclerView.adapter = MenuAdapter(requireContext(), beanItems, cartItems)
+        }
+
+        // NON CAF CATEG
+        noncafButton.setOnClickListener{
+            noncafButton.setBackgroundColor(resources.getColor(R.color.orange))
+            noncafButton.setTextColor(resources.getColor(android.R.color.white))
+            noncafButton.setTypeface(null, Typeface.BOLD)
+
+            beanButton.setBackgroundColor(resources.getColor(R.color.white))
+            beanButton.setTextColor(resources.getColor(android.R.color.black))
+            beanButton.setTypeface(null, Typeface.NORMAL)
+
+            espBarButton.setBackgroundColor(resources.getColor(R.color.white))
+            espBarButton.setTextColor(resources.getColor(android.R.color.black))
+            espBarButton.setTypeface(null, Typeface.NORMAL)
+
+            exclusButton.setBackgroundColor(resources.getColor(R.color.white))
+            exclusButton.setTextColor(resources.getColor(android.R.color.black))
+            exclusButton.setTypeface(null, Typeface.NORMAL)
+
+            val beanItems = dataset.filter { it.menuType == "NonCaf" }
+            recyclerView.layoutManager = LinearLayoutManager(requireContext())
+            recyclerView.adapter = MenuAdapter(requireContext(), beanItems, cartItems)
+        }
+
 
     }
 

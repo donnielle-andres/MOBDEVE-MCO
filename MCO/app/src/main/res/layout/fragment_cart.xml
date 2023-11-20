@@ -12,7 +12,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
@@ -24,18 +23,13 @@
             android:id="@+id/deliverTo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="4dp"
+            android:layout_marginBottom="0dp"
             android:fontFamily="@font/sora"
             android:text="@string/deliverTo"
             android:textAlignment="viewStart"
             android:textColor="@color/black"
             android:textSize="12sp" />
-        <AutoCompleteTextView
-            android:id="@+id/autoCompleteTextView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Enter a location"
-            android:inputType="text" />
+
         <TextView
             android:id="@+id/location"
             android:layout_width="wrap_content"
@@ -45,8 +39,8 @@
             android:text="Test Location"
             android:textAlignment="viewStart"
             android:textColor="#FFF06C4C"
-            android:textStyle="bold"
-            android:textSize="24sp" />
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
 
     </LinearLayout>

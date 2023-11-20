@@ -21,10 +21,11 @@
         android:id="@+id/login_linear"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="128dp"
+        android:layout_marginTop="64dp"
         android:gravity="center"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@id/login_parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView">
 
@@ -66,7 +67,8 @@
                 android:textColor="@color/black40"
                 android:textColorHighlight="@color/orange"
                 android:textColorHint="@color/black40"
-                android:textSize="14sp" />
+                android:textSize="14sp"
+                android:inputType="textPassword"/>
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -99,8 +101,8 @@
             android:id="@+id/createAccountButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/sora"
             android:backgroundTint="@color/white"
+            android:fontFamily="@font/sora"
 
             android:text="Create Account"
             android:textAlignment="center"

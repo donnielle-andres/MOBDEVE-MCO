@@ -33,46 +33,80 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
 
-    <TextView
-        android:id="@+id/userName"
-        android:layout_width="wrap_content"
-        android:layout_height="28dp"
-        android:layout_marginTop="164dp"
-        android:layout_marginEnd="256dp"
-        android:fontFamily="@font/sora_semibold"
-        android:text="John Doe"
-        android:textSize="18sp"
-        android:textStyle="bold"
+    <LinearLayout
+        android:id="@+id/linearLayout3"
+        android:layout_width="364dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="108dp"
+        android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.087"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/userPhone"
-        android:layout_width="wrap_content"
-        android:layout_height="23dp"
-        android:layout_marginStart="65dp"
-        android:text="+63 1234 567 890"
-        android:textColor="#74000000"
-        android:textSize="12sp"
-        android:textStyle="bold"
+        app:layout_constraintHorizontal_bias="0.489"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/userName" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView2">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:src="@drawable/profile" />
+
+            <TextView
+                android:id="@+id/userName"
+                android:layout_width="333dp"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/sora_semibold"
+                android:text="John Doe"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/imageView5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:src="@drawable/call" />
+
+            <TextView
+                android:id="@+id/userPhone"
+                android:layout_width="333dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="7dp"
+                android:text="+63 1234 567 890"
+                android:textColor="#74000000"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="364dp"
         android:layout_height="260dp"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="42dp"
-        android:layout_marginEnd="25dp"
+        android:layout_marginTop="48dp"
         android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.489"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/userPhone">
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout3"
+        app:layout_constraintVertical_bias="0.0">
 
         <Button
             android:id="@+id/editAccBtn"
-            android:layout_width="363dp"
+            android:layout_width="match_parent"
             android:layout_height="48dp"
             android:layout_marginBottom="20dp"
             android:fontFamily="@font/sora_semibold"
@@ -87,7 +121,7 @@
 
         <Button
             android:id="@+id/editPassBtn"
-            android:layout_width="363dp"
+            android:layout_width="match_parent"
             android:layout_height="48dp"
             android:layout_marginBottom="20dp"
             android:fontFamily="@font/sora_semibold"
@@ -102,7 +136,7 @@
 
         <Button
             android:id="@+id/orderHistoryBtn"
-            android:layout_width="363dp"
+            android:layout_width="match_parent"
             android:layout_height="48dp"
             android:layout_marginBottom="20dp"
             android:fontFamily="@font/sora_semibold"
@@ -117,7 +151,7 @@
 
         <Button
             android:id="@+id/logOutBtn"
-            android:layout_width="363dp"
+            android:layout_width="match_parent"
             android:layout_height="48dp"
             android:fontFamily="@font/sora_semibold"
             android:text="Log Out"
