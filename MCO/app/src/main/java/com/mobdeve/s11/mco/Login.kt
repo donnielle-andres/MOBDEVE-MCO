@@ -48,24 +48,25 @@ class Login : Fragment() {
 
         binding.loginButton.setOnClickListener {
             CartData.cartItems.clear()
-            val usernameText = view.findViewById<TextInputLayout>(R.id.username_text)
+            val emailText = view.findViewById<TextInputLayout>(R.id.username_text)
             val passwordText = view.findViewById<TextInputLayout>(R.id.password_text)
 
-            val username = usernameText.editText?.text.toString()
+            val email = emailText.editText?.text.toString()
             val password = passwordText.editText?.text.toString()
 
 
-            if(TextUtils.isEmpty(username) || TextUtils.isEmpty(password)) {
+            if(TextUtils.isEmpty(email) || TextUtils.isEmpty(password)) {
                 Toast.makeText(requireContext(), "Empty field not allowed!",
                         Toast.LENGTH_SHORT).show();
             }
             else{
                 val usersDatabase = UsersDatabase(requireContext())
-                val user = usersDatabase.getUser(username)
+                val user = usersDatabase.getUser(email)
                 if (user != null && user.password == password) {
                     // Authentication successful
-                    sessionManager.saveUserEmail(username)
+                    sessionManager.saveUserEmail(email)
                     sessionManager.saveUserNumber(user.number)
+                    sessionManager.saveFullname(user.fullName)
                     sessionManager.clearAddress()
                     findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
                 }else {

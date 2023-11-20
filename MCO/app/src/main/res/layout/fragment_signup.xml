@@ -45,12 +45,13 @@
         app:layout_constraintTop_toBottomOf="@+id/editAccText"
         app:layout_constraintVertical_bias="0.107">
 
+
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/newUsernameInput"
+            android:id="@+id/newNameInput"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
-            android:hint="Username"
+            android:hint="Full Name"
             app:boxStrokeColor="@color/black40"
             app:hintTextColor="@color/black40">
 
@@ -64,6 +65,26 @@
                 android:textColorHint="@color/black40"
                 android:textSize="14sp" />
 
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/newEmailInput"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:hint="Email"
+            app:boxStrokeColor="@color/black40"
+            app:hintTextColor="@color/black40">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/sora"
+                android:padding="12dp"
+                android:textColor="@color/black40"
+                android:textColorHighlight="@color/orange"
+                android:textColorHint="@color/black40"
+                android:textSize="14sp" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout

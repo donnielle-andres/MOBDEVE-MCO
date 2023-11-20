@@ -20,11 +20,13 @@ class UsersDatabase (context: Context){
     }
     fun insertUser(newUser: User) {
         val db = databaseHandler.writableDatabase
-        val username = newUser.username
+        val email = newUser.email
+        val fullname = newUser.fullName
         val password = newUser.password
         val number = newUser.number
         val values = ContentValues().apply {
-            put(DatabaseHandler.USERNAME, username)
+            put(DatabaseHandler.EMAIL, email)
+            put(DatabaseHandler.FULL_NAME, fullname)
             put(DatabaseHandler.PASSWORD, password)
             put(DatabaseHandler.NUMBER, number)
         }
@@ -37,13 +39,14 @@ class UsersDatabase (context: Context){
     fun getUser(username: String): User? {
         val db = databaseHandler.readableDatabase
         val fields = arrayOf(
-            DatabaseHandler.USERNAME,
+            DatabaseHandler.EMAIL,
+            DatabaseHandler.FULL_NAME,
             DatabaseHandler.PASSWORD,
             DatabaseHandler.NUMBER
         )
 
         // Add a WHERE clause to filter users by username
-        val selection = "${DatabaseHandler.USERNAME} = ?"
+        val selection = "${DatabaseHandler.EMAIL} = ?"
         val selectionArgs = arrayOf(username)
 
         val cursor = db.query(
@@ -57,13 +60,15 @@ class UsersDatabase (context: Context){
         )
 
         if (cursor.moveToFirst()) {
-            val storedUsername = cursor.getStringOrNull(cursor.getColumnIndex("${DatabaseHandler.USERNAME}"))
+            val storedEmail = cursor.getStringOrNull(cursor.getColumnIndex("${DatabaseHandler.EMAIL}"))
+            val fullName = cursor.getStringOrNull(cursor.getColumnIndex("${DatabaseHandler.FULL_NAME}"))
+
             val password = cursor.getStringOrNull(cursor.getColumnIndex("${DatabaseHandler.PASSWORD}"))
             val number = cursor.getStringOrNull(cursor.getColumnIndex("${DatabaseHandler.NUMBER}"))
 
             cursor.close()
 
-            return User(storedUsername!!, password!!, number!!)
+            return User(storedEmail!!,fullName!!, password!!, number!!)
         }
 
         cursor.close()

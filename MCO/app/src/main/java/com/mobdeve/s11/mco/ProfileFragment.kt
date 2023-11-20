@@ -49,8 +49,10 @@ class ProfileFragment : Fragment() {
         }*/
 
         val usernameView = view.findViewById<TextView>(R.id.userName)
+        val fullNameView = view.findViewById<TextView>(R.id.fullNameTextView)
         val userNumberView = view.findViewById<TextView>(R.id.userPhone)
         usernameView.setText(sessionManager.getUserEmail())
+        fullNameView.setText(sessionManager.getUserFullname())
         userNumberView.setText(sessionManager.getUserNumber())
 
         val orderHistoryButton = view.findViewById<Button>(R.id.orderHistoryBtn)

@@ -42,29 +42,31 @@ class SignupFragment : Fragment() {
          * findNavController().navigate(R.id.action_SecondFragment_to_FirstFragment)
         }*/
         binding.signupButton.setOnClickListener {
-            val usernameText = view.findViewById<TextInputLayout>(R.id.newUsernameInput)
+            val emailText = view.findViewById<TextInputLayout>(R.id.newEmailInput)
+            val fullnameText = view.findViewById<TextInputLayout>(R.id.newNameInput)
             val passwordText = view.findViewById<TextInputLayout>(R.id.newPasswordInput)
             val numberText = view.findViewById<TextInputLayout>(R.id.newNumberInput)
 
 
-            val username = usernameText.editText?.text.toString()
+            val email = emailText.editText?.text.toString()
+            val fullname = fullnameText.editText?.text.toString()
             val password = passwordText.editText?.text.toString()
             val number = numberText.editText?.text.toString()
 
 
-            if(TextUtils.isEmpty(username) || TextUtils.isEmpty(password) || TextUtils.isEmpty(number)) {
+            if(TextUtils.isEmpty(email) || TextUtils.isEmpty(password) || TextUtils.isEmpty(number) || TextUtils.isEmpty(fullname)) {
                 Toast.makeText(requireContext(), "Empty field not allowed!",
                     Toast.LENGTH_SHORT).show();
             }
             else{
                 val usersDatabase = UsersDatabase(requireContext())
-                val user = usersDatabase.getUser(username)
+                val user = usersDatabase.getUser(email)
                 if (user != null ) {
                     // Username found in db; Invalid Signup
                     Toast.makeText(requireContext(),"Username used already. Please use another Username!", Toast.LENGTH_SHORT).show()
                 }else {
                     // Valid signup
-                    val newUser = User(username,password,number)
+                    val newUser = User(email,fullname,password,number)
                     usersDatabase.insertUser(newUser)
                     Toast.makeText(requireContext(), "Signup Successful!", Toast.LENGTH_SHORT).show()
                     findNavController().navigate(R.id.action_signupFragment_to_Login)

@@ -21,7 +21,8 @@ class DatabaseHandler (private val context: Context) : SQLiteOpenHelper(context,
 
         const val USERS_TABLE = "users_table"
 
-        const val USERNAME = "username"
+        const val EMAIL = "email"
+        const val FULL_NAME = "full_name"
         const val PASSWORD = "password"
         const val NUMBER = "number"
     }
@@ -40,7 +41,8 @@ class DatabaseHandler (private val context: Context) : SQLiteOpenHelper(context,
         db?.execSQL(CREATE_ORDERS_TABLE)
 
         val CREATE_USERS_TABLE = "CREATE TABLE $USERS_TABLE (" +
-                "	$USERNAME TEXT PRIMARY KEY" +
+                "	$EMAIL TEXT PRIMARY KEY" +
+                "	,$FULL_NAME TEXT" +
                 "	,$PASSWORD TEXT" +
                 "	,$NUMBER TEXT"+
                 ")"
@@ -48,20 +50,22 @@ class DatabaseHandler (private val context: Context) : SQLiteOpenHelper(context,
         Log.d("DatabaseHandler", "onCreate called")
 
         // Insert two sample users during initialization
-        val user1Username = "user1"
+        val user1Username = "user1@yahoo.com"
+        val user1Fullname = "User 1"
         val user1Password = "password1"
         val user1Number = "09771230987"
 
-        val user2Username = "user2"
+        val user2Username = "user2@yahoo.com"
+        val user2Fullname = "User 2"
         val user2Password = "password2"
         val user2Number = "09175329876"
 
         // Insert user1
-        val insertUser1 = "INSERT INTO $USERS_TABLE ($USERNAME, $PASSWORD, $NUMBER) VALUES ('$user1Username', '$user1Password', '$user1Number')"
+        val insertUser1 = "INSERT INTO $USERS_TABLE ($EMAIL, $FULL_NAME, $PASSWORD, $NUMBER) VALUES ('$user1Username','$user1Fullname', '$user1Password', '$user1Number')"
         db?.execSQL(insertUser1)
 
         // Insert user2
-        val insertUser2 = "INSERT INTO $USERS_TABLE ($USERNAME, $PASSWORD, $NUMBER) VALUES ('$user2Username', '$user2Password', '$user2Number')"
+        val insertUser2 = "INSERT INTO $USERS_TABLE ($EMAIL, $FULL_NAME, $PASSWORD, $NUMBER) VALUES ('$user2Username', '$user2Fullname','$user2Password', '$user2Number')"
         db?.execSQL(insertUser2)
     }
 
