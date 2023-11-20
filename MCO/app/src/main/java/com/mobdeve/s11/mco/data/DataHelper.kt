@@ -7,8 +7,8 @@ class DataHelper {
     companion object {
         fun initializeData(): ArrayList<Menu> {
             val menuType = arrayOf("Bean",
-                "Bean", "Bean",
-                "Bean", "Bean")
+                "NonCaf", "Espresso",
+                "Bean", "Exclusive")
             val coffeeNames = arrayOf("Papua New Guinea Arufa Espresso",
                 "Wild Flower", "GRAPOS decaf",
                 "Golden Ticket", "Legazpi")

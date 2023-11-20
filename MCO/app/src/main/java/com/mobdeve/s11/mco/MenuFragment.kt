@@ -93,9 +93,7 @@ class MenuFragment : Fragment() {
 
         println(cartItems.size)
         val recyclerView = binding.recyclerView
-        recyclerView.layoutManager = LinearLayoutManager(requireContext())
-        recyclerView.adapter = MenuAdapter(requireContext(), dataset, cartItems)
-
+        
 //        // Adds a [DividerItemDecoration] between items
 //        recyclerView.addItemDecoration(
 //            DividerItemDecoration(context, DividerItemDecoration.VERTICAL)
