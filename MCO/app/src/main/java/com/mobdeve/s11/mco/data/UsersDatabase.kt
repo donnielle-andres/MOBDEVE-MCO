@@ -35,6 +35,33 @@ class UsersDatabase (context: Context){
         db.insert(DatabaseHandler.USERS_TABLE, null, values)
         db.close()
     }
+    fun updateUserByEmail(email: String, fullName: String,number:String) {
+        val db = databaseHandler.writableDatabase
+        val values = ContentValues().apply {
+            put(DatabaseHandler.FULL_NAME, fullName)
+            put(DatabaseHandler.NUMBER, number)
+        }
+
+        // Define the WHERE clause to update the user based on their email
+        val whereClause = "${DatabaseHandler.EMAIL} = ?"
+        val whereArgs = arrayOf(email)
+
+        // Update the user's information in the database
+        db.update(DatabaseHandler.USERS_TABLE, values, whereClause, whereArgs)
+        db.close()
+    }
+    fun updateUserPassword(email: String, newPassword: String) {
+        val db = databaseHandler.writableDatabase
+        val values = ContentValues().apply {
+            put(DatabaseHandler.PASSWORD, newPassword)
+        }
+        // Define the WHERE clause to update the user based on their email
+        val whereClause = "${DatabaseHandler.EMAIL} = ?"
+        val whereArgs = arrayOf(email)
+        // Update the user's information in the database
+        db.update(DatabaseHandler.USERS_TABLE, values, whereClause, whereArgs)
+        db.close()
+    }
 
     fun getUser(username: String): User? {
         val db = databaseHandler.readableDatabase
@@ -74,5 +101,7 @@ class UsersDatabase (context: Context){
         cursor.close()
         return null
     }
+
+
 
 }

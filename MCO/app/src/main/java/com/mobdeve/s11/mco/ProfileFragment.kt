@@ -57,6 +57,8 @@ class ProfileFragment : Fragment() {
 
         val orderHistoryButton = view.findViewById<Button>(R.id.orderHistoryBtn)
         val logoutButton = view.findViewById<Button>(R.id.logOutBtn)
+        val editAccountButton = view.findViewById<Button>(R.id.editAccBtn)
+        val changePasswordButton = view.findViewById<Button>(R.id.editPassBtn)
         orderHistoryButton.setOnClickListener{
             view.findNavController().navigate(R.id.action_profileFragment_to_historyFragment)
         }
@@ -65,6 +67,14 @@ class ProfileFragment : Fragment() {
             sessionManager.logout()
             view.findNavController().navigate(R.id.mainActivity)
         }
+
+        editAccountButton.setOnClickListener{
+            view.findNavController().navigate(R.id.editAccountFragment)
+        }
+        changePasswordButton.setOnClickListener{
+            view.findNavController().navigate(R.id.changePasswordFragment)
+        }
+
 
     }
 

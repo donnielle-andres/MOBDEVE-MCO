@@ -74,12 +74,12 @@
     <fragment
         android:id="@+id/historyFragment"
         android:name="com.mobdeve.s11.mco.HistoryFragment"
-        android:label="fragment_history"
+        android:label="Order History"
         tools:layout="@layout/fragment_history" />
     <fragment
         android:id="@+id/signupFragment"
         android:name="com.mobdeve.s11.mco.SignupFragment"
-        android:label="fragment_signup"
+        android:label="Sign Up"
         tools:layout="@layout/fragment_signup" >
         <action
             android:id="@+id/action_signupFragment_to_Login"
@@ -88,7 +88,7 @@
     <fragment
         android:id="@+id/profileFragment"
         android:name="com.mobdeve.s11.mco.ProfileFragment"
-        android:label="fragment_profile"
+        android:label="Profile"
         tools:layout="@layout/fragment_profile" >
         <action
             android:id="@+id/action_profileFragment_to_historyFragment"
@@ -99,13 +99,15 @@
         android:name="com.mobdeve.s11.mco.MainActivity"
         android:label="activity_main"
         tools:layout="@layout/activity_main" />
+
     <fragment
-        android:id="@+id/addressFragment"
-        android:name="com.mobdeve.s11.mco.AddressFragment"
-        android:label="fragment_address"
-        tools:layout="@layout/fragment_address" >
-        <action
-            android:id="@+id/action_addressFragment_to_Menu"
-            app:destination="@id/Menu" />
-    </fragment>
+        android:id="@+id/editAccountFragment"
+        android:name="com.mobdeve.s11.mco.EditAccountFragment"
+        android:label="Edit Account"
+        tools:layout="@layout/fragment_edit_account" />
+    <fragment
+        android:id="@+id/changePasswordFragment"
+        android:name="com.mobdeve.s11.mco.ChangePasswordFragment"
+        android:label="Change Password"
+        tools:layout="@layout/fragment_change_password" />
 </navigation>
