@@ -5,5 +5,5 @@ class Cart (
     val title: String,
     val price: String,
     val size: String,
-    val quantity: Int) {
+    var quantity: Int) {
 }

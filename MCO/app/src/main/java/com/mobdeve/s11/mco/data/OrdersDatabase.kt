@@ -1,4 +1,5 @@
 package com.mobdeve.s11.mco.data
+import android.annotation.SuppressLint
 import android.content.ContentValues
 import android.content.Context
 import android.provider.ContactsContract.Data
@@ -31,6 +32,48 @@ class OrdersDatabase (context: Context){
         db.insert(DatabaseHandler.ORDERS_TABLE, null, values)
         db.close()
     }
+
+    @SuppressLint("Range")
+    fun getOrderById(orderId: Int): Order? {
+        val selection = "${DatabaseHandler.ORDER_ID} = ?"
+        val selectionArgs = arrayOf(orderId.toString())
+        val db = databaseHandler.readableDatabase
+        val fields = arrayOf(
+            DatabaseHandler.ORDER_ID,
+            DatabaseHandler.ORDER_TOTAL,
+            DatabaseHandler.ORDER_ADDRESS,
+            DatabaseHandler.ORDER_ITEMS,
+            DatabaseHandler.ORDER_DATE,
+            DatabaseHandler.USER_EMAIL
+        )
+
+        val cursor = db.query(
+            DatabaseHandler.ORDERS_TABLE,
+            fields,
+            selection,
+            selectionArgs,
+            null,
+            null,
+            null
+        )
+
+        if (cursor.count > 0 && cursor.moveToFirst()) {
+            val orderID = cursor.getInt(cursor.getColumnIndex(DatabaseHandler.ORDER_ID))
+            val orderTotal = cursor.getDouble(cursor.getColumnIndex(DatabaseHandler.ORDER_TOTAL))
+            val orderAddress = cursor.getString(cursor.getColumnIndex(DatabaseHandler.ORDER_ADDRESS))
+            val orderItems = cursor.getString(cursor.getColumnIndex(DatabaseHandler.ORDER_ITEMS))
+            val orderDate = cursor.getString(cursor.getColumnIndex(DatabaseHandler.ORDER_DATE))
+            val userEmail = cursor.getString(cursor.getColumnIndex(DatabaseHandler.USER_EMAIL))
+
+            cursor.close()
+
+            return Order(orderID, userEmail, orderItems, orderAddress, orderTotal, orderDate)
+        }
+
+        cursor.close()
+        return null
+    }
+
     fun getOrders(user: String): ArrayList<Order>{
         val selection = "${DatabaseHandler.USER_EMAIL} = ?"
         val selectionArgs = arrayOf(user)

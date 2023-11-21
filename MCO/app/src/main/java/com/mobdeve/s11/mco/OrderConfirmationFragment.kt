@@ -73,7 +73,7 @@ class OrderConfirmationFragment : Fragment() {
     // Inside OrderConfirmationFragment
     private fun insertOrderIntoDatabase(cartItems: List<Cart>, location: String, username: String) {
         val user = username// Replace with the actual user email
-        val orderItems = cartItems.joinToString { "${it.quantity} x ${it.title}" }
+        val orderItems = cartItems.joinToString { "${it.quantity} x ${it.title} - ${it.size}" }
         val orderAddress = location
         val orderTotal = cartItems.sumOf { it.price.replace("₱", "").toDouble() * it.quantity }
         val currentDate = Date()
@@ -85,7 +85,6 @@ class OrderConfirmationFragment : Fragment() {
 
         ordersDatabase.insertOrder(order)
     }
-
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         /**binding.buttonSecond.setOnClickListener {

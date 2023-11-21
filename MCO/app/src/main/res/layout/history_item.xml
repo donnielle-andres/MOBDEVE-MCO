@@ -31,7 +31,7 @@
         android:id="@+id/order_address"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="52dp"
+        android:layout_marginTop="40dp"
         android:fontFamily="@font/sora_extralight"
         android:gravity="center"
         android:text="address"
@@ -75,16 +75,30 @@
         android:id="@+id/order_total"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="21dp"
-        android:layout_marginBottom="8dp"
         android:fontFamily="@font/sora_semibold"
         android:gravity="center"
         android:text="P700"
         android:textAlignment="viewStart"
         android:textColor="@color/orange"
         android:textSize="12sp"
-        app:layout_constraintBottom_toBottomOf="@+id/menu_item_photo"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/menu_item_title" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/order_again"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        android:layout_width="80dp"
+        android:layout_height="35dp"
+        android:text="Order Again"
+        android:textColor="@color/white"
+        android:textSize="6sp"
+        app:backgroundTint="#ec694a"
+        app:cornerRadius="3dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:rippleColor="#33AAAAAA"
+        app:strokeColor="#e7dfd9"
+        app:strokeWidth="2dp" />
 
     <ImageView
         android:id="@+id/menu_item_photo"

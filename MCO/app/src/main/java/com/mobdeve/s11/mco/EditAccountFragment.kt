@@ -69,7 +69,7 @@ class EditAccountFragment : Fragment() {
                         number = user.number
                     }
                     if(TextUtils.isEmpty(fullname)){
-                        number = user.fullName
+                        fullname = user.fullName
                     }
                     usersDatabase.updateUserByEmail(email,fullname,number)
                     val updatedUser = usersDatabase.getUser(email)
