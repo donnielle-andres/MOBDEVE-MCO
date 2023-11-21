@@ -14,7 +14,7 @@
     android:padding="8dp">
 
     <TextView
-        android:id="@+id/order_id"
+        android:id="@+id/menu_item_title"
         android:layout_width="160dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -30,60 +30,53 @@
         app:layout_constraintTop_toTopOf="@+id/menu_item_photo" />
 
     <TextView
-        android:id="@+id/menu_item_title2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="1dp"
-        android:fontFamily="@font/sora_extralight"
-        android:gravity="center"
-        android:text="Size:"
-        android:textAlignment="viewStart"
-        android:textColor="@color/black40"
-        android:textSize="10sp"
-        app:layout_constraintStart_toStartOf="@+id/order_id"
-        app:layout_constraintTop_toBottomOf="@+id/order_id" />
-
-    <TextView
         android:id="@+id/menu_item_size"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="1dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="5dp"
         android:fontFamily="@font/sora_extralight"
         android:gravity="center"
         android:text="250g"
         android:textAlignment="viewStart"
         android:textColor="@color/black40"
         android:textSize="10sp"
-        app:layout_constraintStart_toEndOf="@+id/menu_item_title2"
-        app:layout_constraintTop_toBottomOf="@+id/order_id" />
+        app:layout_constraintEnd_toStartOf="@+id/quantity_text"
+        app:layout_constraintStart_toEndOf="@+id/menu_item_photo"
+        app:layout_constraintTop_toBottomOf="@+id/menu_item_title" />
 
     <TextView
-        android:id="@+id/menu_item_title3"
+        android:id="@+id/quantity_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="1dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="2dp"
         android:fontFamily="@font/sora_extralight"
         android:gravity="center"
         android:text="Quantity:"
         android:textAlignment="viewStart"
         android:textColor="@color/black40"
         android:textSize="10sp"
-        app:layout_constraintStart_toStartOf="@+id/order_id"
-        app:layout_constraintTop_toBottomOf="@+id/menu_item_title2" />
+        app:layout_constraintEnd_toStartOf="@+id/menu_item_quantity"
+        app:layout_constraintStart_toEndOf="@+id/menu_item_size"
+        app:layout_constraintTop_toBottomOf="@+id/menu_item_title" />
 
     <TextView
         android:id="@+id/menu_item_quantity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="1dp"
+        android:layout_marginStart="3dp"
+        android:layout_marginTop="8dp"
         android:fontFamily="@font/sora_extralight"
         android:gravity="center"
         android:text="5"
         android:textAlignment="viewStart"
         android:textColor="@color/black40"
         android:textSize="10sp"
-        app:layout_constraintStart_toEndOf="@+id/menu_item_title3"
-        app:layout_constraintTop_toBottomOf="@+id/menu_item_title2" />
+        app:layout_constraintStart_toEndOf="@+id/quantity_text"
+        app:layout_constraintTop_toBottomOf="@+id/menu_item_title" />
 
     <TextView
         android:id="@+id/order_total"

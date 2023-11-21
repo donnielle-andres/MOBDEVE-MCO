@@ -11,7 +11,6 @@ import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import com.mobdeve.s11.mco.R
 import com.mobdeve.s11.mco.model.Cart
-import org.w3c.dom.Text
 
 class OrderConfirmationAdapter(private val context: Context, private val dataset: List<Cart>):
     RecyclerView.Adapter<OrderConfirmationAdapter.OrderConfirmationViewHolder>() {
@@ -28,7 +27,7 @@ class OrderConfirmationAdapter(private val context: Context, private val dataset
      */
     class OrderConfirmationViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
         val menuPhoto = view.findViewById<ImageView>(R.id.menu_item_photo)
-        val menuTitle = view.findViewById<TextView>(R.id.order_id)
+        val menuTitle = view.findViewById<TextView>(R.id.menu_item_title)
         val menuPrice = view.findViewById<TextView>(R.id.order_total)
         val parent = view.findViewById<ConstraintLayout>(R.id.menu_title)
         val sizeView = view.findViewById<TextView>(R.id.menu_item_size)

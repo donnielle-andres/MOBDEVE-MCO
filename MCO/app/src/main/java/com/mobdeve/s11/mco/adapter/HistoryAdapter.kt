@@ -1,20 +1,13 @@
 package com.mobdeve.s11.mco.adapter
 
 import android.content.Context
-import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import android.widget.TextView
-import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.mobdeve.s11.mco.R
-import com.mobdeve.s11.mco.model.Cart
-import com.mobdeve.s11.mco.model.Menu
 import com.mobdeve.s11.mco.model.Order
-import org.w3c.dom.Text
 
 class HistoryAdapter(private val context: Context, private val dataset: List<Order>):
     RecyclerView.Adapter<HistoryAdapter.HistoryViewHolder>() {
@@ -25,7 +18,7 @@ class HistoryAdapter(private val context: Context, private val dataset: List<Ord
      * Provides a reference for the views needed to display items in your list.
      */
     class HistoryViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
-        val orderId = view.findViewById<TextView>(R.id.order_id)
+        val orderId = view.findViewById<TextView>(R.id.menu_item_title)
         val orderAddress = view.findViewById<TextView>(R.id.order_address)
         val orderDate = view.findViewById<TextView>(R.id.order_date)
         val orderTotal = view.findViewById<TextView>(R.id.order_total)

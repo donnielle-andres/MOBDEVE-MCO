@@ -134,6 +134,8 @@ class OrderConfirmationFragment : Fragment() {
                 Toast.makeText(requireContext(), "Order confirmed! Please wait for 30 minutes.",
                     Toast.LENGTH_SHORT).show();
                 insertOrderIntoDatabase(cartItems, locationString,userEmail)
+
+                cartItems.clear()
                 view.findNavController().navigate(R.id.order_now)
             }
             else{

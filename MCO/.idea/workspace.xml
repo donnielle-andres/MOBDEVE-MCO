@@ -11,16 +11,15 @@
   <component name="ChangeListManager">
     <list default="true" id="51657e4f-9adc-4db2-a030-f51a9d98efa3" name="Changes" comment="added account, settings, and nav bar, pero ayaw mag run haha">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/mobdeve/s11/mco/Login.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/mobdeve/s11/mco/Login.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/mobdeve/s11/mco/ProfileFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/mobdeve/s11/mco/ProfileFragment.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/mobdeve/s11/mco/SessionManagement.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/mobdeve/s11/mco/SessionManagement.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/mobdeve/s11/mco/SignupFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/mobdeve/s11/mco/SignupFragment.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/mobdeve/s11/mco/data/DatabaseHandler.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/mobdeve/s11/mco/data/DatabaseHandler.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/mobdeve/s11/mco/data/UsersDatabase.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/mobdeve/s11/mco/data/UsersDatabase.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/mobdeve/s11/mco/model/User.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/mobdeve/s11/mco/model/User.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_login.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_login.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_profile.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_profile.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_signup.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_signup.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/mobdeve/s11/mco/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/mobdeve/s11/mco/MainActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/mobdeve/s11/mco/OrderConfirmationFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/mobdeve/s11/mco/OrderConfirmationFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/mobdeve/s11/mco/adapter/CartAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/mobdeve/s11/mco/adapter/CartAdapter.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/mobdeve/s11/mco/adapter/HistoryAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/mobdeve/s11/mco/adapter/HistoryAdapter.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/mobdeve/s11/mco/adapter/MenuAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/mobdeve/s11/mco/adapter/MenuAdapter.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/mobdeve/s11/mco/adapter/OrderConfirmationAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/mobdeve/s11/mco/adapter/OrderConfirmationAdapter.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/cart_item.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/cart_item.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/history_item.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/history_item.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/menu_item.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/menu_item.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

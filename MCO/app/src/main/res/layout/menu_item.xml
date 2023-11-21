@@ -14,7 +14,7 @@
     android:padding="8dp">
 
     <TextView
-        android:id="@+id/order_id"
+        android:id="@+id/menu_item_title"
         android:layout_width="160dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -40,8 +40,8 @@
         android:textAlignment="viewStart"
         android:textColor="@color/black40"
         android:textSize="10sp"
-        app:layout_constraintStart_toStartOf="@+id/order_id"
-        app:layout_constraintTop_toBottomOf="@+id/order_id" />
+        app:layout_constraintStart_toStartOf="@+id/menu_item_title"
+        app:layout_constraintTop_toBottomOf="@+id/menu_item_title" />
 
     <TextView
         android:id="@+id/order_total"

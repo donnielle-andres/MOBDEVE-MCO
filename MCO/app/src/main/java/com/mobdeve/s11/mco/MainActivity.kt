@@ -53,7 +53,7 @@ class MainActivity : AppCompatActivity() {
             }
             R.id.profile -> {
                 // Handle other menu items as needed
-                findNavController(R.id.nav_host_fragment_content_main).navigate(R.id.action_Menu_to_profileFragment)
+                findNavController(R.id.nav_host_fragment_content_main).navigate(R.id.profileFragment)
                 true
             }
             R.id.logout -> {
