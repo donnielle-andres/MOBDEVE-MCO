@@ -1,7 +1,6 @@
 package com.mobdeve.s11.mco.adapter
 
 import android.content.Context
-import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,12 +9,9 @@ import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
-import com.mobdeve.s11.mco.LoginDirections
-import com.mobdeve.s11.mco.MenuFragmentDirections
 import com.mobdeve.s11.mco.R
 import com.mobdeve.s11.mco.data.CartData.Companion.cartItems
 import com.mobdeve.s11.mco.model.Cart
-import com.mobdeve.s11.mco.model.Menu
 
 class CartAdapter(private val context: Context, private val dataset: List<Cart>):
     RecyclerView.Adapter<CartAdapter.CartViewHolder>() {
@@ -31,7 +27,7 @@ class CartAdapter(private val context: Context, private val dataset: List<Cart>)
      * Provides a reference for the views needed to display items in your list.
      */
     class CartViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
-        val menuPhoto = view.findViewById<ImageView>(R.id.menu_item_photo)
+        val menuPhoto = view.findViewById<ImageView>(R.id.history_item_photo)
         val menuTitle = view.findViewById<TextView>(R.id.menu_item_title)
         val menuPrice = view.findViewById<TextView>(R.id.order_total)
         val parent = view.findViewById<ConstraintLayout>(R.id.recycler_view)
@@ -66,7 +62,7 @@ class CartAdapter(private val context: Context, private val dataset: List<Cart>)
         var tempPrice = item.price.replace("₱", "").toFloat()
         tempPrice *= item.quantity.toFloat()
 
-        holder.menuPhoto.setImageResource(coffeeImages[item.imageId])
+        holder.menuPhoto.setImageResource(context.resources.getIdentifier(item.imageId, "drawable", context.packageName))
         holder.menuTitle.text = item.title
         holder.menuPrice.text = ("₱${tempPrice}")
         holder.sizeView.text = item.size

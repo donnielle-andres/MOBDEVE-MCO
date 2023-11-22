@@ -26,7 +26,7 @@ class OrderConfirmationAdapter(private val context: Context, private val dataset
      * Provides a reference for the views needed to display items in your list.
      */
     class OrderConfirmationViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
-        val menuPhoto = view.findViewById<ImageView>(R.id.menu_item_photo)
+        val menuPhoto = view.findViewById<ImageView>(R.id.history_item_photo)
         val menuTitle = view.findViewById<TextView>(R.id.menu_item_title)
         val menuPrice = view.findViewById<TextView>(R.id.order_total)
         val parent = view.findViewById<ConstraintLayout>(R.id.menu_title)
@@ -62,7 +62,7 @@ class OrderConfirmationAdapter(private val context: Context, private val dataset
         var tempPrice = item.price.replace("₱", "").toFloat()
         tempPrice *= item.quantity.toFloat()
 
-        holder.menuPhoto.setImageResource(coffeeImages[item.imageId])
+        holder.menuPhoto.setImageResource(context.resources.getIdentifier(item.imageId, "drawable", context.packageName))
         holder.menuTitle.text = item.title
         holder.menuPrice.text = ("₱${tempPrice}")
         holder.sizeView.text = item.size

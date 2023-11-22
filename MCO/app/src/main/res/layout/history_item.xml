@@ -68,8 +68,8 @@
         android:textColor="@color/black"
         android:textSize="12sp"
         android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@+id/menu_item_photo"
-        app:layout_constraintTop_toTopOf="@+id/menu_item_photo" />
+        app:layout_constraintStart_toEndOf="@+id/history_item_photo"
+        app:layout_constraintTop_toTopOf="@+id/history_item_photo" />
 
     <TextView
         android:id="@+id/order_total"
@@ -101,7 +101,7 @@
         app:strokeWidth="2dp" />
 
     <ImageView
-        android:id="@+id/menu_item_photo"
+        android:id="@+id/history_item_photo"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:src="@drawable/papua_new"

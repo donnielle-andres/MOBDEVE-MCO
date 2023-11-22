@@ -11,22 +11,30 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.mobdeve.s11.mco.R
-import com.mobdeve.s11.mco.model.Cart
 import com.mobdeve.s11.mco.model.Menu
 
-class MenuAdapter(private val context: Context, private val dataset: List<Menu>, private val cartItems: List<Cart>):
+class MenuAdapter(private val context: Context, private val dataset: List<Menu>):
     RecyclerView.Adapter<MenuAdapter.MenuViewHolder>() {
 
-        // Generates a [CharRange] from 'A' to 'Z' and converts it to a list
+        companion object {
+            val TITLE = "title_key"
+            val PRICE = "price_key"
+            val IMAGE = "image_key"
+            val QUANTITY = "quantity_key"
+            val SIZE = "size_key"
+            val DESCRIPTION = "description_key"
+            val MAX_PRICE = "maxPrice_key"
+        }
 
         /**
          * Provides a reference for the views needed to display items in your list.
          */
         class MenuViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
-            val menuPhoto = view.findViewById<ImageView>(R.id.menu_item_photo)
+            val menuPhoto = view.findViewById<ImageView>(R.id.history_item_photo)
             val menuTitle = view.findViewById<TextView>(R.id.menu_item_title)
             val menuPrice = view.findViewById<TextView>(R.id.order_total)
             val parent = view.findViewById<ConstraintLayout>(R.id.menu_title)
+            val description = view.findViewById<TextView>(R.id.menu_description)
         }
 
         override fun getItemCount(): Int {
@@ -51,10 +59,11 @@ class MenuAdapter(private val context: Context, private val dataset: List<Menu>,
          */
         override fun onBindViewHolder(holder: MenuViewHolder, position: Int) {
             val item = dataset[position]
-            holder.menuPhoto.setImageResource(item.imageId)
-            holder.menuTitle.text = item.title
-            holder.menuPrice.text = ("${item.price} to ${item.priceMax}")
-
+            val resourceId = context.resources.getIdentifier(item.menuImage, "drawable", context.packageName)
+            holder.menuPhoto.setImageResource(resourceId)
+            holder.menuTitle.text = item.menuTitle
+            holder.menuPrice.text = ("₱${item.menuPrice} to ₱${item.priceMax}")
+            holder.description.text = item.menuDescription
 
             // Assigns a [OnClickListener] to the button contained in the [ViewHolder]
             holder.parent.setOnClickListener {
@@ -62,9 +71,10 @@ class MenuAdapter(private val context: Context, private val dataset: List<Menu>,
                 // using the required argument
                 val bundle = Bundle()
                 bundle.putString("title_key", holder.menuTitle.text.toString())
-                bundle.putString("price_key", item.price)
-                bundle.putString("maxPrice_key", item.priceMax)
-                bundle.putString("image_key", item.itemId.toString())
+                bundle.putString("price_key", "₱"+item.menuPrice.toString())
+                bundle.putString("maxPrice_key", "₱"+item.priceMax.toString())
+                bundle.putString("image_key", item.menuImage)
+                bundle.putString("description_key",item.menuDescription)
                 // Navigate using that action
                 holder.view.findNavController().navigate(R.id.action_Menu_to_MenuItem, bundle)
             }

@@ -38,18 +38,6 @@ class HistoryFragment : Fragment() {
 
     }
 
-
-    //Ignore this. For dummy data only
-    private fun initializeOrderData(): List<Order> {
-        // Replace with your logic to initialize order data
-        // Example:
-        val orderList = mutableListOf<Order>()
-        orderList.add(Order(1,"john_doe@gmail.com","1 x Golden Ticket","DLSU Gokongwei Hall", 500.0,"Janury 3, 2023"))
-        orderList.add(Order(2,"jane_doe@gmail.com", "1 x Legazpi","Las Pinas", 500.0,"February 5, 2023"))
-        // Add more orders as needed
-        return orderList
-    }
-
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null

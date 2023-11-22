@@ -1,7 +1,7 @@
 package com.mobdeve.s11.mco.model
 
 class Cart (
-    val imageId: Int,
+    val imageId: String,
     val title: String,
     val price: String,
     val size: String,

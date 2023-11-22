@@ -5,14 +5,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.TextView
-import androidx.navigation.Navigation.findNavController
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.mobdeve.s11.mco.R
 import com.mobdeve.s11.mco.SessionManagement
 import com.mobdeve.s11.mco.data.CartData
-import com.mobdeve.s11.mco.data.DataHelper
+import com.mobdeve.s11.mco.data.MenuDatabase
 import com.mobdeve.s11.mco.data.OrdersDatabase
 import com.mobdeve.s11.mco.model.Cart
 import com.mobdeve.s11.mco.model.Order
@@ -31,6 +31,7 @@ class HistoryAdapter(private val context: Context, private val dataset: List<Ord
         val orderTotal = view.findViewById<TextView>(R.id.order_total)
         val orderDetails = view.findViewById<TextView>(R.id.order_items)
         val orderAgainButton = view.findViewById<Button>(R.id.order_again)
+        val historyItemPhoto = view.findViewById<ImageView>(R.id.history_item_photo)
         val currView = view
     }
 
@@ -63,7 +64,8 @@ class HistoryAdapter(private val context: Context, private val dataset: List<Ord
         ordersDatabase.getOrderById(prevOrder.orderId)
             ?.let { sessionManager.saveAddress(it.orderAddress) }
 
-        val data = DataHelper.initializeData()
+        val db = MenuDatabase(context)
+        val data = db.getAllMenu()
 
         val orderItems = prevOrder.orderItems // Assuming that `orderItems` is a string in the format "quantity1 x title1, quantity2 x title2, ..."
 
@@ -83,9 +85,9 @@ class HistoryAdapter(private val context: Context, private val dataset: List<Ord
                 existingCartItem.quantity += quantity
             } else {
                 // If no matching CartItem exists, create a new CartItem and add it to the cart
-                val menuItem = data.find { it.title == title}
+                val menuItem = data.find { it.menuTitle == title}
                 val cartItem =
-                    menuItem?.let { Cart(0,title, menuItem.price, size, quantity) } // TODO (change imageId that is passed; Need to refer from Menu)
+                    menuItem?.let { Cart(menuItem.menuImage,title, menuItem.menuPrice.toString(), size, quantity) } // TODO (change imageId that is passed; Need to refer from Menu)
                 if (cartItem != null) {
                     CartData.cartItems.add(cartItem)
                 }
@@ -100,6 +102,7 @@ class HistoryAdapter(private val context: Context, private val dataset: List<Ord
         holder.orderDetails.text = item.orderItems
         holder.orderDate.text = item.orderDate
         holder.orderTotal.text = "Php " + item.orderTotal
+        holder.historyItemPhoto.setImageResource(context.resources.getIdentifier(item.orderImage, "drawable", context.packageName))
         holder.orderAgainButton.setOnClickListener{
             prevOrderToCart(item)
             holder.currView.findNavController().navigate(R.id.orderConfirmationFragment)

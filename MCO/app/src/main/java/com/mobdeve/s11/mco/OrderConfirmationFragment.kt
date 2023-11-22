@@ -7,19 +7,12 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.Toast
-import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.button.MaterialButton
-import com.mobdeve.s11.mco.adapter.CartAdapter
-import com.mobdeve.s11.mco.adapter.MenuAdapter
 import com.mobdeve.s11.mco.adapter.OrderConfirmationAdapter
-import com.mobdeve.s11.mco.data.CartData
 import com.mobdeve.s11.mco.data.CartData.Companion.cartItems
-import com.mobdeve.s11.mco.data.DataHelper
 import com.mobdeve.s11.mco.data.OrdersDatabase
-import com.mobdeve.s11.mco.databinding.FragmentCartBinding
-import com.mobdeve.s11.mco.databinding.FragmentMenuBinding
 import com.mobdeve.s11.mco.databinding.FragmentOrderConfirmationBinding
 import com.mobdeve.s11.mco.model.Cart
 import com.mobdeve.s11.mco.model.Order
@@ -71,7 +64,7 @@ class OrderConfirmationFragment : Fragment() {
     }
 
     // Inside OrderConfirmationFragment
-    private fun insertOrderIntoDatabase(cartItems: List<Cart>, location: String, username: String) {
+    private fun insertOrderIntoDatabase(cartItems: List<Cart>, location: String, username: String, imageId: String) {
         val user = username// Replace with the actual user email
         val orderItems = cartItems.joinToString { "${it.quantity} x ${it.title} - ${it.size}" }
         val orderAddress = location
@@ -79,9 +72,9 @@ class OrderConfirmationFragment : Fragment() {
         val currentDate = Date()
         val dateFormat = SimpleDateFormat("MMMM d, yyyy", Locale.getDefault())
         val orderDate = dateFormat.format(currentDate)
-
+        val orderImage = imageId
         val ordersDatabase = OrdersDatabase(requireContext())
-        val order = Order(0, user, orderItems, orderAddress, orderTotal, orderDate)
+        val order = Order(0, user, orderItems, orderAddress, orderTotal, orderDate, orderImage)
 
         ordersDatabase.insertOrder(order)
     }
@@ -132,7 +125,7 @@ class OrderConfirmationFragment : Fragment() {
             if(sessionManager.getAddress()!=null){
                 Toast.makeText(requireContext(), "Order confirmed! Please wait for 30 minutes.",
                     Toast.LENGTH_SHORT).show();
-                insertOrderIntoDatabase(cartItems, locationString,userEmail)
+                insertOrderIntoDatabase(cartItems, locationString,userEmail,dataset[0].imageId)
 
                 cartItems.clear()
                 view.findNavController().navigate(R.id.order_now)

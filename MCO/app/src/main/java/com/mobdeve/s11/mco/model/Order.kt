@@ -6,6 +6,7 @@ class Order(
     val orderItems: String,
     val orderAddress: String,
     val orderTotal: Double,
-    val orderDate: String
+    val orderDate: String,
+    val orderImage: String
 ) {
 }

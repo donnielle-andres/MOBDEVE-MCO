@@ -6,7 +6,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MenuFragment">
-
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="vertical"
+        app:layoutManager="LinearLayoutManager"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/menu_parent"
+        app:layout_constraintTop_toBottomOf="@+id/scrollView2" />
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
@@ -78,7 +86,7 @@
                 android:layout_weight="1"
                 android:backgroundTint="@color/orange"
                 android:fontFamily="@font/sora"
-                android:text="Beans"
+                android:text="Iced"
                 android:textColor="@color/white"
                 android:textSize="14sp"
                 android:textStyle="bold"
@@ -92,7 +100,7 @@
                 android:layout_weight="1"
                 android:backgroundTint="#00FFFFFF"
                 android:fontFamily="@font/sora"
-                android:text="Espresso Bar"
+                android:text="Hot"
                 android:textColor="@color/black"
                 android:textSize="14sp"
                 app:cornerRadius="12dp" />
@@ -139,15 +147,5 @@
         app:maxImageSize="40dp"
         app:srcCompat="@drawable/cart"
         app:tint="@color/white" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_view"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:scrollbars="vertical"
-        app:layoutManager="LinearLayoutManager"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@id/menu_parent"
-        app:layout_constraintTop_toBottomOf="@+id/scrollView2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

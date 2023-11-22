@@ -32,10 +32,11 @@
 
     <TextView
         android:id="@+id/menu_fragment_price"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/menu_fragment_title"
         app:layout_constraintStart_toEndOf="@id/menu_fragment_image"
+        app:layout_constraintEnd_toEndOf="parent"
         android:text="P800.00"
         android:paddingStart="32dp"
         android:paddingEnd="32dp"
@@ -83,13 +84,13 @@
             android:id="@+id/radio_button_250g"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="250g" />
+            android:text="Regular" />
 
         <RadioButton
             android:id="@+id/radio_button_1kg"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="1kg" />
+            android:text="Large" />
 
     </RadioGroup>
 

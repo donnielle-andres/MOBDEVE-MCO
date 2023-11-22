@@ -7,21 +7,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.Toast
-import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.google.android.libraries.places.api.Places
-import com.google.android.libraries.places.api.model.Place
 import com.google.android.material.button.MaterialButton
 import com.mobdeve.s11.mco.adapter.CartAdapter
-import com.mobdeve.s11.mco.adapter.MenuAdapter
-import com.mobdeve.s11.mco.data.CartData
 import com.mobdeve.s11.mco.data.CartData.Companion.cartItems
 
-import com.mobdeve.s11.mco.data.DataHelper
 import com.mobdeve.s11.mco.databinding.FragmentCartBinding
-import com.mobdeve.s11.mco.databinding.FragmentMenuBinding
-import com.mobdeve.s11.mco.model.Cart
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.libraries.places.widget.AutocompleteSupportFragment
 

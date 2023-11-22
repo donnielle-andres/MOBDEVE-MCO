@@ -16,7 +16,9 @@ import androidx.navigation.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.button.MaterialButton
+import com.mobdeve.s11.mco.data.CartData
 import com.mobdeve.s11.mco.databinding.FragmentMenuItemBinding
+import com.mobdeve.s11.mco.model.Cart
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -36,6 +38,10 @@ class MenuItem : Fragment() {
         val PRICE = "price_key"
         val MAXPRICE = "maxPrice_key"
         val IMAGE = "image_key"
+        val DESCRIPTION = "description_key"
+        val QUANTITY = "quantity_key"
+        val SIZE = "size_key"
+
     }
 
     private var _binding: FragmentMenuItemBinding? = null
@@ -48,6 +54,9 @@ class MenuItem : Fragment() {
     private lateinit var priceString: String
     private lateinit var maxPriceString: String
     private lateinit var imageId: String
+    private lateinit var description: String
+    private lateinit var quantityString: String
+    private lateinit var sizeString: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -56,6 +65,7 @@ class MenuItem : Fragment() {
             priceString = it.getString(PRICE).toString()
             maxPriceString = it.getString(MAXPRICE).toString()
             imageId = it.getString(IMAGE).toString()
+            description = it.getString(DESCRIPTION).toString()
         }
     }
 
@@ -94,11 +104,12 @@ class MenuItem : Fragment() {
         var finalSize = ""
         var finalQuantity = 0
         var finalPrice = priceString
-        val currImage = coffeeImages[imageId.toInt()]
+        val currImage = 1
 
         titleView.text = titleString
-        priceView.text = priceString
-        imageView.setImageResource(currImage)
+        priceView.text = "$priceString to $maxPriceString"
+        descView.text =description
+        imageView.setImageResource(requireContext().resources.getIdentifier(imageId, "drawable", requireContext().packageName))
 
 
         cartButton.setOnClickListener{
@@ -107,10 +118,10 @@ class MenuItem : Fragment() {
 
             if(sizeAns!=-1 && quantityAns!=-1) {
                 if (size250.isChecked()) {
-                    finalSize = "250g"
+                    finalSize = "Regular"
                     finalPrice = priceString
                 } else {
-                    finalSize = "1kg"
+                    finalSize = "Large"
                     finalPrice = maxPriceString
                 }
 
@@ -133,6 +144,9 @@ class MenuItem : Fragment() {
                 bundle.putString("image_key", imageId)
                 bundle.putString("quantity_key", finalQuantity.toString())
                 bundle.putString("size_key", finalSize)
+                bundle.putString("description_key", description)
+
+                CartData.cartItems.add(Cart(imageId, titleString, priceString, finalSize, finalQuantity))
                 // Navigate using that action
                 view.findNavController().navigate(R.id.item_to_menu, bundle)
             }
@@ -140,11 +154,7 @@ class MenuItem : Fragment() {
                 Toast.makeText(requireContext(), "Please fill in the blanks!",
                     Toast.LENGTH_SHORT).show();
             }
-
-
         }
-
-
         }
 
     /**

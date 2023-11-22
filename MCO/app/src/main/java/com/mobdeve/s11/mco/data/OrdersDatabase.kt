@@ -26,6 +26,7 @@ class OrdersDatabase (context: Context){
             put(DatabaseHandler.ORDER_ADDRESS, order.orderAddress)
             put(DatabaseHandler.ORDER_TOTAL, order.orderTotal)
             put(DatabaseHandler.ORDER_DATE, order.orderDate)
+            put(DatabaseHandler.ORDER_IMAGE, order.orderImage)
         }
 
         // Insert the order into the database
@@ -44,7 +45,8 @@ class OrdersDatabase (context: Context){
             DatabaseHandler.ORDER_ADDRESS,
             DatabaseHandler.ORDER_ITEMS,
             DatabaseHandler.ORDER_DATE,
-            DatabaseHandler.USER_EMAIL
+            DatabaseHandler.USER_EMAIL,
+            DatabaseHandler.ORDER_IMAGE
         )
 
         val cursor = db.query(
@@ -64,10 +66,11 @@ class OrdersDatabase (context: Context){
             val orderItems = cursor.getString(cursor.getColumnIndex(DatabaseHandler.ORDER_ITEMS))
             val orderDate = cursor.getString(cursor.getColumnIndex(DatabaseHandler.ORDER_DATE))
             val userEmail = cursor.getString(cursor.getColumnIndex(DatabaseHandler.USER_EMAIL))
+            val orderImage = cursor.getString(cursor.getColumnIndex(DatabaseHandler.ORDER_IMAGE))
 
             cursor.close()
 
-            return Order(orderID, userEmail, orderItems, orderAddress, orderTotal, orderDate)
+            return Order(orderID, userEmail, orderItems, orderAddress, orderTotal, orderDate, orderImage)
         }
 
         cursor.close()
@@ -85,7 +88,8 @@ class OrdersDatabase (context: Context){
             DatabaseHandler.ORDER_ADDRESS,
             DatabaseHandler.ORDER_ITEMS,
             DatabaseHandler.ORDER_DATE,
-            DatabaseHandler.USER_EMAIL
+            DatabaseHandler.USER_EMAIL,
+            DatabaseHandler.ORDER_IMAGE
         )
         val cursor = db.query("${DatabaseHandler.ORDERS_TABLE}",fields, selection, selectionArgs, null, null, null)
         Log.d("Count", "${cursor.count}")
@@ -98,7 +102,8 @@ class OrdersDatabase (context: Context){
                     val orderItems= cursor.getStringOrNull(cursor.getColumnIndex("${DatabaseHandler.ORDER_ITEMS}"))
                     val orderDate = cursor.getStringOrNull(cursor.getColumnIndex("${DatabaseHandler.ORDER_DATE}"))
                     val userEmail =cursor.getStringOrNull(cursor.getColumnIndex("${DatabaseHandler.USER_EMAIL}"))
-                    result.add(Order( orderID!!, userEmail!!,orderItems!!, orderAddress!!,orderTotal!!,orderDate!!))
+                    val orderImage = cursor.getStringOrNull(cursor.getColumnIndex("${DatabaseHandler.ORDER_IMAGE}"))
+                    result.add(Order( orderID!!, userEmail!!,orderItems!!, orderAddress!!,orderTotal!!,orderDate!!,orderImage!!))
                 }while(cursor.moveToNext())
             }
         }
