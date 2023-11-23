@@ -107,7 +107,7 @@ class DatabaseHandler (private val context: Context) : SQLiteOpenHelper(context,
         "('HOT', 'Hot Chocolate', 'Espresso combined with bittersweet mocha sauce and steamed milk, then topped with sweetened whipped cream', 200, 220, 'hot_chocolate'),"+
         "('NON CAF', 'Iced Youthberry Tea', 'Strawberry Açaí Refreshers —with hints of passion fruit and strawberry', 180, 200, 'iced_youthberry_tea'),"+
         "('NON CAF', 'Iced Tea', 'Awaken your taste buds with the zing of refreshing tea', 180, 200, 'iced_tea'),"+
-        "('NON CAF', 'ICED MATCHA LATTE', 'Smooth and creamy matcha sweetened just right and served with milk over ice.', 175, 190, 'iced_matcha_latte')"
+        "('NON CAF', 'Iced Matcha Latte', 'Smooth and creamy matcha sweetened just right and served with milk over ice.', 175, 190, 'iced_matcha_latte')"
         db?.execSQL(insertMenuItems)
     }
 

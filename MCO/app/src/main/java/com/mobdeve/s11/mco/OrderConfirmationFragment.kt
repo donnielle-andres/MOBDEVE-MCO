@@ -87,8 +87,8 @@ class OrderConfirmationFragment : Fragment() {
         var userEmail = "Guest"
         var userNumber = "0000"
         println(cartItems.size)
-        var subtotalPrice = 0.0
-        var totalPrice = 0.0
+        var subtotalPrice = 0.00
+        var totalPrice = 0.00
 
         for(item in dataset){
             var tempPrice = item.price.replace("₱", "").toFloat()

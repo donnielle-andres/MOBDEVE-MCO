@@ -70,7 +70,7 @@ class CartFragment : Fragment() {
         val dataset = cartItems
 
         println(cartItems.size)
-        var totalPrice = 0.0
+        var totalPrice = 0.00
 
         for(item in dataset){
             var tempPrice = item.price.replace("₱", "").toFloat()

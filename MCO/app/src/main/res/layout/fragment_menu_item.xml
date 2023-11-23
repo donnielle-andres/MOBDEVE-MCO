@@ -20,56 +20,59 @@
         android:id="@+id/menu_fragment_title"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toEndOf="@id/menu_fragment_image"
-        app:layout_constraintTop_toTopOf="@id/menu_fragment_image"
+        android:fontFamily="@font/sora_semibold"
+        android:gravity="left"
+        android:paddingStart="32dp"
+        android:paddingTop="10dp"
+        android:paddingEnd="32dp"
         android:text="Test"
         android:textSize="24dp"
         android:textStyle="bold"
-        android:gravity="left"
-        android:paddingStart="32dp"
-        android:paddingEnd="32dp"
-        android:paddingTop="10dp"/>
+        app:layout_constraintStart_toEndOf="@id/menu_fragment_image"
+        app:layout_constraintTop_toTopOf="@id/menu_fragment_image" />
 
     <TextView
         android:id="@+id/menu_fragment_price"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/menu_fragment_title"
-        app:layout_constraintStart_toEndOf="@id/menu_fragment_image"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:text="P800.00"
+        android:fontFamily="@font/sora"
         android:paddingStart="32dp"
+        android:paddingTop="10dp"
         android:paddingEnd="32dp"
-        android:textSize="24dp"
-        android:paddingTop="10dp"/>
+        android:text="P800.00"
+        android:textAlignment="textStart"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/menu_fragment_image"
+        app:layout_constraintTop_toBottomOf="@id/menu_fragment_title" />
 
     <TextView
         android:id="@+id/menu_fragment_description"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="@id/menu_fragment_parent"
-        app:layout_constraintTop_toBottomOf="@id/menu_fragment_image"
+        android:fontFamily="@font/sora"
+        android:justificationMode="inter_word"
+        android:paddingStart="32dp"
+        android:paddingTop="10dp"
+        android:paddingEnd="32dp"
         android:text="Secret Stash 041: A member of the Creativa Coffee District, Lourdes Serracin presents you with this mind-blowing coffee. The 'intrinsic cherry' process allows the essence of each micro-lot to shine.
         \n\nFLAVOR NOTES: In the cup, we taste Apple Juice, Ripe Mangoes and Ripe Cherry. A dynamic and tingly coffee best enjoyed as a pour over."
-        android:paddingStart="32dp"
-        android:paddingEnd="32dp"
-        android:layout_marginEnd="32dp"
-        android:paddingTop="10dp"
-        android:textSize="12dp"
-        android:justificationMode="inter_word"/>
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="@id/menu_fragment_parent"
+        app:layout_constraintTop_toBottomOf="@id/menu_fragment_image" />
 
     <TextView
         android:id="@+id/menu_fragment_size"
-        android:layout_width="wrap_content"
+        android:layout_width="64dp"
         android:layout_height="wrap_content"
-        android:text="Size"
-        android:fontFamily="@font/sora"
-        android:textColor="#FFF06C4C"
-        app:layout_constraintTop_toBottomOf="@id/menu_fragment_description"
-        app:layout_constraintStart_toStartOf="@id/menu_fragment_parent"
-        android:textStyle="bold"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/sora_semibold"
         android:paddingStart="32dp"
-        android:paddingTop="32dp"/>
+        android:text="Size"
+        android:textColor="#FFF06C4C"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@id/menu_fragment_parent"
+        app:layout_constraintTop_toBottomOf="@id/menu_fragment_description" />
 
     <RadioGroup
         android:id="@+id/menu_fragment_size_radio"
@@ -83,13 +86,13 @@
         <RadioButton
             android:id="@+id/radio_button_250g"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="36dp"
             android:text="Regular" />
 
         <RadioButton
             android:id="@+id/radio_button_1kg"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="36dp"
             android:text="Large" />
 
     </RadioGroup>
@@ -98,14 +101,14 @@
         android:id="@+id/menu_fragment_quantity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Quantity"
-        android:fontFamily="@font/sora"
-        android:textColor="#FFF06C4C"
-        app:layout_constraintTop_toBottomOf="@id/menu_fragment_size_radio"
-        app:layout_constraintStart_toStartOf="@id/menu_fragment_parent"
-        android:textStyle="bold"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/sora_semibold"
         android:paddingStart="32dp"
-        android:paddingTop="8dp"/>
+        android:text="Quantity"
+        android:textColor="#FFF06C4C"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@id/menu_fragment_parent"
+        app:layout_constraintTop_toBottomOf="@id/menu_fragment_size_radio" />
 
     <RadioGroup
         android:id="@+id/menu_fragment_quantity_radio"
@@ -149,24 +152,23 @@
     </RadioGroup>
 
 
-
     <com.google.android.material.button.MaterialButton
         android:id="@+id/menu_fragment_addToCart"
         style="@style/Widget.MaterialComponents.Button.OutlinedButton"
         android:layout_width="300dp"
         android:layout_height="60dp"
+        android:layout_marginTop="20dp"
         android:text="Add to Cart"
-        android:textColor="@color/black"
+        android:textColor="@color/orange"
         android:textSize="15sp"
         app:backgroundTint="@android:color/transparent"
         app:cornerRadius="3dp"
+        app:layout_constraintEnd_toEndOf="@id/menu_fragment_parent"
+        app:layout_constraintStart_toStartOf="@id/menu_fragment_parent"
+        app:layout_constraintTop_toBottomOf="@id/menu_fragment_quantity_radio"
         app:rippleColor="#33AAAAAA"
         app:strokeColor="#e7dfd9"
-        app:strokeWidth="2dp"
-        app:layout_constraintStart_toStartOf="@id/menu_fragment_parent"
-        app:layout_constraintEnd_toEndOf="@id/menu_fragment_parent"
-        app:layout_constraintTop_toBottomOf="@id/menu_fragment_quantity_radio"
-        android:layout_marginTop="20dp"/>
+        app:strokeWidth="2dp" />
 
 
 

@@ -62,16 +62,21 @@ class Login : Fragment() {
             else{
                 val usersDatabase = UsersDatabase(requireContext())
                 val user = usersDatabase.getUser(email)
-                if (user != null && user.password == password) {
-                    // Authentication successful
-                    sessionManager.saveUserEmail(email)
-                    sessionManager.saveUserNumber(user.number)
-                    sessionManager.saveFullname(user.fullName)
-                    sessionManager.clearAddress()
-                    findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
-                }else {
-                    // Authentication failed
-                    Toast.makeText(requireContext(), "Invalid username or password", Toast.LENGTH_SHORT).show()
+                if (user != null) {
+                    if (user.password == password && user.email == email) {
+                        // Authentication successful
+                        sessionManager.saveUserEmail(email)
+                        sessionManager.saveUserNumber(user.number)
+                        sessionManager.saveFullname(user.fullName)
+                        sessionManager.clearAddress()
+                        findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
+                    }else {
+                        // Authentication failed
+                        Toast.makeText(requireContext(), "Invalid email or password", Toast.LENGTH_SHORT).show()
+                    }
+                } else {
+                    // No Records
+                    Toast.makeText(requireContext(), "User not found! Create an account", Toast.LENGTH_SHORT).show()
                 }
             }
 
