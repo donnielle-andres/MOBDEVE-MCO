@@ -55,7 +55,8 @@
         android:textColor="@color/orange"
         android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="@+id/history_item_photo"
-        app:layout_constraintStart_toEndOf="@+id/history_item_photo" />
+        app:layout_constraintStart_toEndOf="@+id/history_item_photo"
+        app:layout_constraintTop_toBottomOf="@+id/menu_description" />
 
     <ImageView
         android:id="@+id/history_item_photo"

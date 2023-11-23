@@ -13,6 +13,7 @@ import android.widget.Toast
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.gms.common.api.Status
+import com.google.android.gms.maps.model.LatLng
 import com.google.android.libraries.places.api.Places
 import com.google.android.libraries.places.api.model.Place
 import com.google.android.libraries.places.widget.AutocompleteSupportFragment
@@ -23,6 +24,7 @@ import com.mobdeve.s11.mco.adapter.MenuAdapter
 import com.mobdeve.s11.mco.model.Cart
 import com.mobdeve.s11.mco.data.CartData.Companion.cartItems
 import com.mobdeve.s11.mco.data.MenuDatabase
+import com.google.android.libraries.places.api.model.RectangularBounds
 
 /**
  * A simple [Fragment] subclass as the second destination in the navigation.
@@ -83,6 +85,11 @@ class MenuFragment : Fragment() {
         }
         var inputAddressHint = "Enter address"
         val deliverToText = view.findViewById<TextView>(R.id.deliverTo)
+        val metroManilaBounds = RectangularBounds.newInstance(
+            LatLng(14.4167, 120.9667), // Southwest corner of the bounding box
+            LatLng(14.7500, 121.2000)  // Northeast corner of the bounding box
+        )
+
         autocompleteSupportFragment = (childFragmentManager.findFragmentById(R.id.autocomplete_fragment) as? AutocompleteSupportFragment)!!
 
         if (autocompleteSupportFragment != null) {
@@ -90,30 +97,19 @@ class MenuFragment : Fragment() {
                 autocompleteSupportFragment.setHint(sessionManager.getAddress())
             }
             autocompleteSupportFragment.setPlaceFields(listOf(Place.Field.LAT_LNG, Place.Field.NAME))
-
+            autocompleteSupportFragment.setLocationBias(metroManilaBounds)
             autocompleteSupportFragment.setOnPlaceSelectedListener(object : PlaceSelectionListener {
                 override fun onError(p0: Status) {
                     // Handle error
                 }
                 override fun onPlaceSelected(p0: Place) {
                     sessionManager.saveAddress(p0.name!!)
-                    deliverToText.setText(sessionManager.getAddress())
+                    deliverToText.setText("Deliver to: "+sessionManager.getAddress())
                 }
             })
         } else {
             Log.e("MenuFragment", "AutocompleteSupportFragment not found")
         }
-        autocompleteSupportFragment.setOnPlaceSelectedListener(object : PlaceSelectionListener {
-            override fun onError(p0: Status) {
-                TODO("Not yet implemented")
-            }
-
-            override fun onPlaceSelected(p0: Place) {
-                sessionManager.saveAddress(p0.name!!)
-                deliverToText.setText("Deliver to: "+sessionManager.getAddress())
-            }
-
-        })
 
         // BEANS CATEG
         beanButton.setOnClickListener{

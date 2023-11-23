@@ -9,6 +9,7 @@ import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Toast
 import com.mobdeve.s11.mco.data.CartData.Companion.cartItems
 import com.mobdeve.s11.mco.databinding.ActivityMainBinding
 import com.mobdeve.s11.mco.model.Cart
@@ -32,6 +33,7 @@ class MainActivity : AppCompatActivity() {
         appBarConfiguration = AppBarConfiguration(navController.graph)
         setupActionBarWithNavController(navController, appBarConfiguration)
         sessionManager = SessionManagement(applicationContext)
+        sessionManager.logout()
 
     }
 
@@ -49,20 +51,39 @@ class MainActivity : AppCompatActivity() {
             R.id.shop -> {
                 // Perform your action when the "shop" item is clicked
                 // For example, you can navigate to a new activity
+                if(sessionManager.isLoggedIn()){
+                    findNavController(R.id.nav_host_fragment_content_main).navigate(R.id.Menu)
+                }
+                else{
+                    Toast.makeText(applicationContext, "You are not signed in!",
+                        Toast.LENGTH_SHORT).show();
+                }
                 true
             }
             R.id.profile -> {
                 // Handle other menu items as needed
-                findNavController(R.id.nav_host_fragment_content_main).navigate(R.id.profileFragment)
+                if(sessionManager.isLoggedIn()){
+                    findNavController(R.id.nav_host_fragment_content_main).navigate(R.id.profileFragment)
+                }
+                else{
+                    Toast.makeText(applicationContext, "You are not signed in!",
+                        Toast.LENGTH_SHORT).show();
+                }
                 true
             }
             R.id.logout -> {
                 // Handle other menu items as needed
                 //Implement logout here
-                sessionManager.clearAddress()
-                sessionManager.logout()
-                cartItems.clear()
-                findNavController(R.id.nav_host_fragment_content_main).navigate(R.id.mainActivity)
+                if(sessionManager.isLoggedIn()){
+                    sessionManager.clearAddress()
+                    sessionManager.logout()
+                    cartItems.clear()
+                    findNavController(R.id.nav_host_fragment_content_main).navigate(R.id.mainActivity)
+                }
+                else{
+                    Toast.makeText(applicationContext, "You are not signed in!",
+                        Toast.LENGTH_SHORT).show();
+                }
                 true
             }
             else -> super.onOptionsItemSelected(item)

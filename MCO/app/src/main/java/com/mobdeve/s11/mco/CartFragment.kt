@@ -91,15 +91,20 @@ class CartFragment : Fragment() {
 
 
         checkoutButton.setOnClickListener{
-            if(sessionManager.getAddress()!=null){
-                val bundle = Bundle()
-                bundle.putString("location_key", locationString)
-                view.findNavController().navigate(R.id.cart_to_confirmation, bundle)
-            }else{
-                Toast.makeText(requireContext(), "Delivery Address is required!",
+            if(cartItems.isEmpty()){
+                Toast.makeText(requireContext(), "Please add items to your cart!",
                     Toast.LENGTH_SHORT).show();
             }
-
+            else{
+                if(sessionManager.getAddress()!=null){
+                    val bundle = Bundle()
+                    bundle.putString("location_key", locationString)
+                    view.findNavController().navigate(R.id.cart_to_confirmation, bundle)
+                }else{
+                    Toast.makeText(requireContext(), "Delivery Address is required!",
+                        Toast.LENGTH_SHORT).show();
+                }
+            }
         }
 
 
