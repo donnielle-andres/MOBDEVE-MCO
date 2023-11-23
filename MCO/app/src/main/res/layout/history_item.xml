@@ -11,7 +11,9 @@
     android:layout_marginBottom="5dp"
     android:background="@drawable/border"
     android:orientation="horizontal"
-    android:padding="8dp">
+    android:paddingLeft="8dp"
+    android:paddingTop="8dp"
+    android:paddingRight="8dp">
 
     <TextView
         android:id="@+id/order_items"
@@ -81,21 +83,24 @@
         android:textAlignment="viewStart"
         android:textColor="@color/orange"
         android:textSize="12sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/menu_item_title" />
+        app:layout_constraintBottom_toBottomOf="@+id/history_item_photo"
+        app:layout_constraintStart_toStartOf="@+id/menu_item_title"
+        app:layout_constraintTop_toBottomOf="@+id/order_address" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/order_again"
         style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-        android:layout_width="80dp"
-        android:layout_height="35dp"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
         android:text="Order Again"
         android:textColor="@color/white"
-        android:textSize="6sp"
+        android:textSize="12dp"
         app:backgroundTint="#ec694a"
-        app:cornerRadius="3dp"
+        app:cornerRadius="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/order_total"
         app:rippleColor="#33AAAAAA"
         app:strokeColor="#e7dfd9"
         app:strokeWidth="2dp" />
