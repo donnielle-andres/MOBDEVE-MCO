@@ -84,7 +84,8 @@
                 android:textColor="@color/black40"
                 android:textColorHighlight="@color/orange"
                 android:textColorHint="@color/black40"
-                android:textSize="14sp" />
+                android:textSize="14sp"
+                android:inputType="textEmailAddress"/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout

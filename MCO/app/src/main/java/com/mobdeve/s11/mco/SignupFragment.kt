@@ -59,17 +59,21 @@ class SignupFragment : Fragment() {
                     Toast.LENGTH_SHORT).show();
             }
             else{
-                val usersDatabase = UsersDatabase(requireContext())
-                val user = usersDatabase.getUser(email)
-                if (user != null ) {
-                    // Username found in db; Invalid Signup
-                    Toast.makeText(requireContext(),"Username used already. Please use another Username!", Toast.LENGTH_SHORT).show()
-                }else {
-                    // Valid signup
-                    val newUser = User(email,fullname,password,number)
-                    usersDatabase.insertUser(newUser)
-                    Toast.makeText(requireContext(), "Signup Successful!", Toast.LENGTH_SHORT).show()
-                    findNavController().navigate(R.id.action_signupFragment_to_Login)
+                if(android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()){
+                    val usersDatabase = UsersDatabase(requireContext())
+                    val user = usersDatabase.getUser(email)
+                    if (user != null ) {
+                        // Username found in db; Invalid Signup
+                        Toast.makeText(requireContext(),"Username used already. Please use another Username!", Toast.LENGTH_SHORT).show()
+                    }else {
+                        // Valid signup
+                        val newUser = User(email,fullname,password,number)
+                        usersDatabase.insertUser(newUser)
+                        Toast.makeText(requireContext(), "Signup Successful!", Toast.LENGTH_SHORT).show()
+                            findNavController().navigate(R.id.action_signupFragment_to_Login)
+                    }
+                }else{
+                    Toast.makeText(requireContext(), "Enter valid email!", Toast.LENGTH_SHORT).show()
                 }
             }
 
