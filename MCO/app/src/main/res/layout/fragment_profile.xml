@@ -50,7 +50,7 @@
 
             <ImageView
                 android:id="@+id/imageView4"
-                android:layout_width="100dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
                 android:layout_weight="1"
@@ -58,7 +58,7 @@
 
             <TextView
                 android:id="@+id/fullNameTextView"
-                android:layout_width="333dp"
+                android:layout_width="260dp"
                 android:layout_height="match_parent"
                 android:fontFamily="@font/sora_semibold"
                 android:text="John Doe"
@@ -80,7 +80,7 @@
 
             <TextView
                 android:id="@+id/userName"
-                android:layout_width="333dp"
+                android:layout_width="260dp"
                 android:layout_height="match_parent"
                 android:fontFamily="@font/sora_semibold"
                 android:text="John Doe"
@@ -102,7 +102,7 @@
 
             <TextView
                 android:id="@+id/userPhone"
-                android:layout_width="333dp"
+                android:layout_width="260dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
                 android:text="+63 1234 567 890"

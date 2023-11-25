@@ -32,7 +32,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="4dp"
-                android:fontFamily="@font/sora"
+                android:fontFamily="@font/sora_semibold"
                 android:text="@string/deliverTo"
                 android:textAlignment="viewStart"
                 android:textColor="@color/black"
@@ -58,8 +58,7 @@
                 android:text="John Doe"
                 android:textAlignment="viewStart"
                 android:textColor="#FFF06C4C"
-                android:textSize="14sp"
-                android:textStyle="bold" />
+                android:textSize="14sp" />
 
             <TextView
                 android:id="@+id/user_number"
@@ -84,8 +83,8 @@
             android:fontFamily="@font/sora_semibold"
             android:text="Order Details"
             android:textAlignment="viewStart"
-            android:textColor="@color/black"
-            android:textSize="14sp"
+            android:textColor="@color/orange"
+            android:textSize="16sp"
             app:layout_constraintStart_toStartOf="@id/menu_parent"
             app:layout_constraintTop_toBottomOf="@id/linearLayout" />
 
@@ -105,13 +104,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="4dp"
-            android:fontFamily="@font/sora"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/sora_semibold"
             android:text="Payment Summary"
             android:textAlignment="viewStart"
-            android:textColor="@color/black"
+            android:textColor="@color/orange"
             android:textSize="16sp"
             app:layout_constraintStart_toStartOf="@id/menu_parent"
             app:layout_constraintTop_toBottomOf="@id/recycler_view" />
@@ -138,8 +135,6 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="26dp"
             android:layout_marginTop="8dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="4dp"
             android:fontFamily="@font/sora"
             android:text="Delivery Fee"
             android:textAlignment="viewStart"
@@ -186,18 +181,18 @@
             android:layout_width="0dp"
             android:layout_height="20dp"
             android:layout_marginStart="26dp"
-            android:layout_marginTop="184dp"
+            android:layout_marginTop="52dp"
             android:fontFamily="@font/sora"
             android:text="TOTAL"
             app:layout_constraintStart_toStartOf="@id/menu_parent"
-            app:layout_constraintTop_toBottomOf="@id/delivery_fee_price" />
+            app:layout_constraintTop_toBottomOf="@+id/delivery_fee" />
 
         <TextView
             android:id="@+id/total_price"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="26dp"
-            android:layout_marginBottom="32dp"
+            android:layout_marginBottom="16dp"
             android:fontFamily="@font/sora"
             android:text="P1000.00"
             android:textColor="#FFF06C4C"
@@ -205,26 +200,27 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="@id/menu_parent"
             app:layout_constraintTop_toBottomOf="@id/total"
-            app:layout_constraintVertical_bias="1.0" />
+            app:layout_constraintVertical_bias="0.0" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/checkout"
             style="@style/Widget.MaterialComponents.Button.OutlinedButton"
             android:layout_width="140dp"
-            android:layout_height="40dp"
+            android:layout_height="45dp"
             android:layout_marginEnd="26dp"
+            android:layout_marginBottom="16dp"
             android:fontFamily="@font/sora"
             android:text="Order Now"
             android:textColor="@color/white"
-            android:textSize="14sp"
+            android:textSize="12sp"
             android:textStyle="bold"
             app:backgroundTint="#ec694a"
             app:cornerRadius="5dp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@id/menu_parent"
             app:layout_constraintTop_toBottomOf="@id/total"
             app:rippleColor="#33AAAAAA"
-            app:strokeColor="#e7dfd9"
-            app:strokeWidth="2dp" />
+            app:strokeColor="#e7dfd9" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
