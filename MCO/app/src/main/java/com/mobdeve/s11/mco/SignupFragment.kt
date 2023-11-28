@@ -64,7 +64,7 @@ class SignupFragment : Fragment() {
                     val user = usersDatabase.getUser(email)
                     if (user != null ) {
                         // Username found in db; Invalid Signup
-                        Toast.makeText(requireContext(),"Username used already. Please use another Username!", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(requireContext(),"Email used already. Please use another Email!", Toast.LENGTH_SHORT).show()
                     }else {
                         // Valid signup
                         val newUser = User(email,fullname,password,number)
