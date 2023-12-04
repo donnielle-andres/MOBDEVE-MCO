@@ -1,5 +1,6 @@
 package com.mobdeve.s11.mco
 
+import android.content.pm.PackageManager
 import android.graphics.Typeface
 import android.os.Bundle
 import android.util.Log
@@ -44,7 +45,11 @@ class MenuFragment : Fragment() {
         sessionManager = SessionManagement(requireContext().applicationContext)
 
         if(!Places.isInitialized()){
-            Places.initialize(requireContext().applicationContext,"AIzaSyDjoWTu_ftH9UpUFbpp86kYYCDzEi1d2go")
+            Places.initialize(requireContext().applicationContext,
+                context?.getPackageManager()
+                    ?.getApplicationInfo(requireContext().getPackageName(),PackageManager.GET_META_DATA)?.metaData?.get("com.google.android.geo.API_KEY")
+                    .toString()
+            )
         }
 
     }
